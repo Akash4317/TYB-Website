@@ -3,6 +3,8 @@ import "@/styles/globals.css";
 import React from 'react';
 import Image from 'next/image';
 import TYBImage from '@/images/tyb.svg';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -42,13 +44,18 @@ const BlogPage = async () => {
 
   return (
     <>
-      <div className='min-h-full max-w-full flex flex-col space-y-6'>
+      <div className='min-h-full max-w-full flex flex-col space-y-6 relative'>
         <h1 className='text-center text-2xl font-bold'>Blog Page</h1>
         <div className='flex flex-wrap gap-4 justify-center'>
           {blogs.map(blog => (
             <BlogDiv key={blog.id} blog={blog} />
           ))}
         </div>
+        <Button className='absolute bottom-4 right-4'>
+          <Link href='/blogs/upload'>
+            Upload Blog
+          </Link>
+        </Button>
       </div>
     </>
   );
