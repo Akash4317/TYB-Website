@@ -5,7 +5,7 @@ import TYBImage from '@/images/tyb.svg';
 import { ModeToggle } from './ui/toggle-theme';
 const Navbar: React.FC = () => {
 	return (
-		<nav className="border hidden md:block px-4 py-2">
+		<nav className="border-b hidden md:block px-4 py-2">
 			<div className="mx-auto flex justify-between items-center">
 				<div className="flex items-center space-x-2">
 					<Image
