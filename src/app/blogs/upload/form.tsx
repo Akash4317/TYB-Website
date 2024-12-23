@@ -19,9 +19,9 @@ const UploadForm: React.FC = () => {
   return (
     <div className='h-full flex flex-col justify-between gap-4'>
       <h1 className='text-center text-2xl font-bold'>Upload Blog</h1>
-      <div className='h-full overflow-y-auto flex flex-col justify-between'>
+      <div className='h-full overflow-y-auto flex flex-col justify-between pr-2 gap-4'>
         <TipTap
-          title='Add your blog title here'
+          title='Add your blog content here'
           onChange={handleChange}
         />
         <div className='flex gap-4 flex-row-reverse'>
