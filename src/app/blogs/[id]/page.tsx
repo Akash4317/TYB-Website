@@ -22,7 +22,6 @@ async function fetchBlog({ id }: { id: string }) {
 
 export default async function BlogPage({ params }: { params: { id: string } }) {
   const blog = await fetchBlog({ id: params.id });
-  console.log(blog);
   return (
     <div>
       <BlogContent content={blog.body} />

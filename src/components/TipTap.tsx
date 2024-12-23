@@ -14,6 +14,7 @@ import TextAlign from '@tiptap/extension-text-align';
 import BulletList from '@tiptap/extension-bullet-list';
 import Superscript from '@tiptap/extension-superscript';
 import OrderedList from '@tiptap/extension-ordered-list';
+import ImageResize from "tiptap-extension-resize-image";
 
 
 export default function TipTap({
@@ -27,10 +28,7 @@ export default function TipTap({
 		extensions: [
 			StarterKit.configure(),
 			Heading.configure({
-				HTMLAttributes: {
-					class: 'text-2xl font-bold',
-				},
-				levels: [1],
+				levels: [1, 2, 3],
 			}),
 			Highlight,
 			Underline,
@@ -38,9 +36,18 @@ export default function TipTap({
 			SubScript,
 			TextAlign.configure({ types: ['heading', 'paragraph'] }),
 			Image,
-			BulletList,
+			ImageResize,
+			BulletList.configure({
+				HTMLAttributes: {
+					class: "list-disc ml-3",
+				},
+			}),
 			ListItem,
-			OrderedList
+			OrderedList.configure({
+				HTMLAttributes: {
+					class: "list-decimal ml-3",
+				},
+			}),
 		],
 		content: `<p>${title}</p>`,
 		editorProps: {
@@ -54,7 +61,7 @@ export default function TipTap({
 	});
 
 	return (
-		<div className='flex flex-col space-y-4'>
+		<div className='flex flex-col space-y-4 pr-2'>
 			<Toolbar editor={editor} />
 			<EditorContent editor={editor} />
 		</div>
