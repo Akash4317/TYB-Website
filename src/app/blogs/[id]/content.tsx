@@ -1,4 +1,3 @@
-// src/components/BlogContent.tsx
 'use client';
 
 import React, { useEffect } from 'react';
@@ -15,16 +14,14 @@ import TextAlign from '@tiptap/extension-text-align';
 import BulletList from '@tiptap/extension-bullet-list';
 import Superscript from '@tiptap/extension-superscript';
 import OrderedList from '@tiptap/extension-ordered-list';
+import ImageResize from "tiptap-extension-resize-image";
 
 const BlogContent = ({ content }: { content: any }) => {
   const editor = useEditor({
     extensions: [
       StarterKit.configure(),
       Heading.configure({
-        HTMLAttributes: {
-          class: 'text-2xl font-bold',
-        },
-        levels: [1],
+        levels: [1, 2, 3],
       }),
       Highlight,
       Underline,
@@ -32,9 +29,18 @@ const BlogContent = ({ content }: { content: any }) => {
       SubScript,
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
       Image,
-      BulletList,
+      ImageResize,
+      BulletList.configure({
+        HTMLAttributes: {
+          class: "list-disc ml-3",
+        },
+      }),
       ListItem,
-      OrderedList
+      OrderedList.configure({
+        HTMLAttributes: {
+          class: "list-decimal ml-3",
+        },
+      }),
     ],
     editable: false,
   });
