@@ -18,7 +18,7 @@ export const fetchBlogs = async () => {
     console.log('Connecting to the database...');
     const client = await blogspool.connect();
     console.log('Connected to the database');
-    const res = await client.query('SELECT * FROM blogs');
+    const res = await client.query('select * from cms.content_manager');
     console.log('Query executed successfully');
     client.release();
     return res.rows;
@@ -27,3 +27,23 @@ export const fetchBlogs = async () => {
     throw err;
   }
 };
+
+export const uploadBlog = async ({ blog }: { blog: any }) => {
+  try {
+    console.log('Connecting to the database...');
+    const client = await blogspool.connect();
+    console.log('Connected to the database');
+    const res = await client.query(
+      `INSERT INTO cms.content_manager (title, content, type, created_date, created_by) 
+          VALUES ($1, $2, $3, NOW(), $4)`,
+      [blog.title, blog.content, blog.type, blog.createdBy]
+    );
+    console.log('Query executed successfully');
+    client.release();
+    return res.rows;
+  }
+  catch (err) {
+    console.error('Error uploading blog:', err);
+    throw err;
+  }
+}

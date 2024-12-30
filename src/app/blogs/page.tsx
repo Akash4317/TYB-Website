@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import "@/styles/globals.css";
 import React from 'react';
+import Link from "next/link";
 import Image from 'next/image';
 import TYBImage from '@/images/tyb.svg';
-import Link from "next/link";
+
+import "@/styles/globals.css";
 import { Button } from "@/components/ui/button";
 
 export const generateMetadata = (): Metadata => {
@@ -20,7 +21,7 @@ export interface Blog {
 };
 
 const fetchBlogs = async (): Promise<Blog[]> => {
-  const response = await fetch(`${process.env.DB_ENDPOINT}/blogs`);
+  const response = await fetch(`/blogs`);
   if (!response.ok) {
     throw new Error('Failed to fetch blogs');
   }
@@ -30,11 +31,11 @@ const fetchBlogs = async (): Promise<Blog[]> => {
 const BlogDiv = ({ blog }: { blog: Blog }) => {
   return (
     <Link href={`/blogs/${blog.id}`}>
-      <div className='border min-w-[200px] h-[250px] p-4 rounded-lg flex flex-col justify-between items-center'>
+      <div className='border min-w-[200px] max-w-[300px] h-[260px] p-4 rounded-lg flex flex-col justify-between items-center'>
         <Image src={TYBImage} alt='TYB' width={80} priority />
         <div className=''>
           <h2 className='text-xl text-center'>{blog.title}</h2>
-          <p className='text-muted-foreground'>{blog.content}</p>
+          <p className='text-muted-foreground text-sm line-clamp-3'>{blog.content}</p>
         </div>
       </div>
     </Link>
