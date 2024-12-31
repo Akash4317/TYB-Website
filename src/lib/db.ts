@@ -3,7 +3,7 @@ import { Pool } from 'pg';
 
 config();
 
-const blogspool = new Pool({
+export const blogspool = new Pool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   database: process.env.DB_NAME,
@@ -15,35 +15,38 @@ const blogspool = new Pool({
 
 export const fetchBlogs = async () => {
   try {
-    console.log('Connecting to the database...');
     const client = await blogspool.connect();
-    console.log('Connected to the database');
     const res = await client.query('select * from cms.content_manager');
-    console.log('Query executed successfully');
     client.release();
     return res.rows;
   } catch (err) {
-    console.error('Error fetching blogs:', err);
     throw err;
   }
 };
-
+export const fetchSingleBlog = async ({ id }: { id: string }) => {
+  try {
+    const client = await blogspool.connect();
+    const res = await client.query('select * from cms.content_manager where id = $1', [id]);
+    client.release();
+    return res.rows;
+  } catch (err) {
+    throw err;
+  }
+}
 export const uploadBlog = async ({ blog }: { blog: any }) => {
   try {
-    console.log('Connecting to the database...');
+    const data = JSON.stringify(blog.content);
     const client = await blogspool.connect();
-    console.log('Connected to the database');
     const res = await client.query(
-      `INSERT INTO cms.content_manager (title, content, type, created_date, created_by) 
-          VALUES ($1, $2, $3, NOW(), $4)`,
-      [blog.title, blog.content, blog.type, blog.createdBy]
+      `INSERT INTO cms.content_manager (title, content, type, title_image_url, created_by, created_date) 
+          VALUES ($1, $2, $3, $4, $5, NOW())`,
+      [blog.title, data, blog.type, blog.title_image_url, blog.created_by]
     );
-    console.log('Query executed successfully');
+
     client.release();
     return res.rows;
   }
   catch (err) {
-    console.error('Error uploading blog:', err);
     throw err;
   }
 }
