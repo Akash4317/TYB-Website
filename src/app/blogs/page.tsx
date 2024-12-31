@@ -5,6 +5,7 @@ import Image from 'next/image';
 import TYBImage from '@/images/tyb.svg';
 
 import "@/styles/globals.css";
+import { fetchBlogs } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 
 export const generateMetadata = (): Metadata => {
@@ -17,15 +18,8 @@ export const generateMetadata = (): Metadata => {
 export interface Blog {
   id: number;
   title: string;
+  description: string;
   content: string;
-};
-
-const fetchBlogs = async (): Promise<Blog[]> => {
-  const response = await fetch(`/blogs`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch blogs');
-  }
-  return response.json();
 };
 
 const BlogDiv = ({ blog }: { blog: Blog }) => {
@@ -35,7 +29,7 @@ const BlogDiv = ({ blog }: { blog: Blog }) => {
         <Image src={TYBImage} alt='TYB' width={80} priority />
         <div className=''>
           <h2 className='text-xl text-center'>{blog.title}</h2>
-          <p className='text-muted-foreground text-sm line-clamp-3'>{blog.content}</p>
+          <p className='text-muted-foreground text-sm line-clamp-3'>{blog.description}</p>
         </div>
       </div>
     </Link>
@@ -45,7 +39,8 @@ const BlogDiv = ({ blog }: { blog: Blog }) => {
 const BlogPage = async () => {
   let blogs: Blog[] = [];
   try {
-    blogs = await fetchBlogs();
+    const res = await fetchBlogs();
+    blogs = res;
   } catch (error) {
     console.error('Failed to fetch blogs:', error);
   }

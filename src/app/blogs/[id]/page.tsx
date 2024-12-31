@@ -2,6 +2,7 @@
 import { notFound } from 'next/navigation';
 import BlogContent from './content';
 import { Metadata } from 'next';
+import { fetchSingleBlog } from '@/lib/db';
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -9,22 +10,20 @@ export const generateMetadata = (): Metadata => {
     description: "Explore the latest blogs from The Yarn Bazaar.",
   };
 };
+// update this function to use handler instead of direct fn call
 async function fetchBlog({ id }: { id: string }) {
-  const res = await fetch(`${process.env.DB_ENDPOINT}/blogs/${id}`, {
-    next: { revalidate: 10 },
-  });
-
-  if (!res.ok) {
-    notFound();
+  const res = await fetchSingleBlog({ id });
+  if (!res || res.length === 0) {
+    throw notFound();
   }
-  return res.json();
+  return res[0];
 }
 
 export default async function BlogPage({ params }: { params: { id: string } }) {
   const blog = await fetchBlog({ id: params.id });
   return (
     <div>
-      <BlogContent content={blog.body} />
+      <BlogContent content={blog.content} />
     </div>
   );
 }

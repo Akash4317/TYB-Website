@@ -5,15 +5,40 @@ import TipTap from '@/components/TipTap';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-const UploadForm: React.FC = () => {
+const UploadForm = () => {
   const [content, setContent] = useState<string>('');
 
   const handleChange = (value: any) => {
     setContent(value);
   };
+  const handleUploadBlog = async (content: string) => {
+    try {
+      // @ts-ignore
+      const data = content.content;
+      const titleObj = data.find((item: any) => item.type === 'heading').content;
+      const title = titleObj[0].text || '';
+      const imageObj = data.find((item: any) => item.type === 'image');
+      const title_image_url = imageObj ? imageObj.attrs.src : '';
+      const type = 'blog';
+      const created_by = 'admin';
+      const response = await fetch('/api/uploadBlog', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, type, content: data, title_image_url, created_by }),
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
-  const handleSubmit = () => {
-    console.log(content);
+      await response.json();
+    } catch (error) {
+      console.error('Error uploading blog:', error);
+    }
+  };
+  const handleSubmit = async () => {
+    await handleUploadBlog(content);
   };
 
   return (
