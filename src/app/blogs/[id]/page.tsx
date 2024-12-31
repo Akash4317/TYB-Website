@@ -19,8 +19,9 @@ async function fetchBlog({ id }: { id: string }) {
   return res[0];
 }
 
-export default async function BlogPage({ params }: { params: { id: string } }) {
-  const blog = await fetchBlog({ id: params.id });
+export default async function BlogPage({ params }: { params: Promise<{ id: string }> }) {
+  const id = (await params).id;
+  const blog = await fetchBlog({ id });
   return (
     <div>
       <BlogContent content={blog.content} />
