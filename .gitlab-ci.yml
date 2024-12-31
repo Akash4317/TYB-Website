@@ -35,7 +35,7 @@ code_quality:
     # - echo $APP_VERSION > dist/version.html
   artifacts:
     paths:
-      - dist
+      - build
 
 .unit-test:
   image: node:20
@@ -65,7 +65,7 @@ code_quality:
     - aws s3 cp "$ZIP_FILE" "s3://${BACKUP_BUCKET}/${BACKUP_KEY}"
     - rm -rf "${BACKUP_DIR}" "${ZIP_FILE}"
     - echo "${AWS_S3_BUCKET} has been backed up successfully"
-    - aws s3 sync dist s3://$AWS_S3_BUCKET --delete
+    - aws s3 sync build s3://$AWS_S3_BUCKET --delete
     - aws cloudfront create-invalidation --distribution ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
 
 build to develop:
