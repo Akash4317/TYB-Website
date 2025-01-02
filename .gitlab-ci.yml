@@ -1,0 +1,81 @@
+stages:
+  - test
+  - build develop
+  - deploy develop
+variables:
+  APP_VERSION: $CI_PIPELINE_IID
+  CI_CURRENT_BRANCH: master
+
+# include:
+#   - template: Jobs/Code-Quality.gitlab-ci.yml
+#   - template: Jobs/SAST.latest.gitlab-ci.yml
+#   - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
+#   - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
+
+# code_quality:
+#   rules:
+#     - if: $CODE_QUALITY_DISABLED
+#       when: never
+#     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+#     - if: $CI_COMMIT_TAG
+
+.eslint:
+  image: node:20
+  stage: test
+  script:
+    - npm install --save-dev eslint --force
+    - node_modules/eslint/bin/eslint.js .
+
+.build:
+  image: node:20
+  script:
+    - npm i --force --legacy-peer-deps
+    - npm run build
+    # - echo $APP_VERSION > dist/version.html
+  artifacts:
+    paths:
+      - build
+
+.unit-test:
+  image: node:20
+  stage: test
+  script:
+    - npm run test:unit --coverage
+
+.deploy:
+  image:
+    name: amazon/aws-cli:2.4.11
+    entrypoint:
+      - ''
+  before_script:
+    - yum install -y zip
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_CURRENT_BRANCH
+  script:
+    - aws --version
+    - export TIMESTAMP=$(date +%Y%m%d%H%M%S)
+    - export BACKUP_DIR="/tmp/${AWS_S3_BUCKET}-${TIMESTAMP}"
+    - export ZIP_FILE="/tmp/${AWS_S3_BUCKET}-${TIMESTAMP}.zip"
+    - export BACKUP_KEY="${AWS_S3_BUCKET}-${TIMESTAMP}.zip"
+    - mkdir -p $BACKUP_DIR
+    - aws s3 sync s3://${AWS_S3_BUCKET} ${BACKUP_DIR}
+    - zip -r $ZIP_FILE $BACKUP_DIR
+    - aws s3 mb "s3://$BACKUP_BUCKET" || true
+    - aws s3 cp "$ZIP_FILE" "s3://${BACKUP_BUCKET}/${BACKUP_KEY}"
+    - rm -rf "${BACKUP_DIR}" "${ZIP_FILE}"
+    - echo "${AWS_S3_BUCKET} has been backed up successfully"
+    - aws s3 sync build s3://$AWS_S3_BUCKET --delete
+    - aws cloudfront create-invalidation --distribution ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+
+build to develop:
+  stage: build develop
+  environment: develop
+  extends: ".build"
+
+deploy to develop:
+  stage: deploy develop
+  dependencies:
+    - build to develop
+  environment: develop
+  extends: ".deploy"
