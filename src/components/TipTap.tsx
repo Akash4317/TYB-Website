@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 
 import { Toolbar } from './Toolbar';
 import StarterKit from '@tiptap/starter-kit';
@@ -20,9 +21,13 @@ import ImageResize from "tiptap-extension-resize-image";
 export default function TipTap({
 	title,
 	onChange,
+	content,
+	enableEdit = true,
 }: {
 	title: string;
-	onChange: (value: any) => void;
+	content?: any;
+	onChange?: (value: any) => void;
+	enableEdit?: boolean;
 }) {
 	const editor = useEditor({
 		extensions: [
@@ -56,13 +61,27 @@ export default function TipTap({
 			},
 		},
 		onUpdate({ editor }) {
+			if (!onChange) return;
 			onChange(editor.getJSON());
 		},
+		editable: enableEdit,
 	});
 
+	useEffect(() => {
+		if (editor && content) {
+			editor.commands.setContent(content);
+		}
+	}, [editor, content]);
+
+	if (!editor) {
+		return null;
+	}
 	return (
 		<div className='flex flex-col space-y-4 pr-2'>
-			<Toolbar editor={editor} />
+			{
+				enableEdit &&
+				<Toolbar editor={editor} />
+			}
 			<EditorContent editor={editor} />
 		</div>
 	);

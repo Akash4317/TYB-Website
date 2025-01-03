@@ -1,8 +1,9 @@
-
-import { notFound } from 'next/navigation';
-import BlogContent from './content';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+
 import { fetchSingleBlog } from '@/lib/db';
+
+import TipTap from '@/components/TipTap';
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -10,7 +11,6 @@ export const generateMetadata = (): Metadata => {
     description: "Explore the latest blogs from The Yarn Bazaar.",
   };
 };
-// update this function to use handler instead of direct fn call
 async function fetchBlog({ id }: { id: string }) {
   const res = await fetchSingleBlog({ id });
   if (!res || res.length === 0) {
@@ -24,7 +24,7 @@ export default async function BlogPage({ params }: { params: Promise<{ id: strin
   const blog = await fetchBlog({ id });
   return (
     <div>
-      <BlogContent content={blog.content} />
+      <TipTap title={blog.title} enableEdit={false} content={blog.content} />
     </div>
   );
 }
