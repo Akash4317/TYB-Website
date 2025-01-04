@@ -28,7 +28,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install Node.js dependencies
-RUN npm install
+RUN npm install pm2 -g
 
 # Copy the rest of the app's source code to the container
 COPY . .
@@ -37,4 +37,4 @@ COPY . .
  EXPOSE 8055
 
 # Command to start your server
-CMD ["node", "index.js"]
+CMD [pm2 start npm --name nextjs-app -- run start -- -p 8055]
