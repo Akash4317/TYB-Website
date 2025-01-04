@@ -12,14 +12,12 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# # Install Flyway
-# RUN wget -qO- https://download.red-gate.com/maven/release/com/redgate/flyway/flyway-commandline/11.0.0/flyway-commandline-11.0.0-linux-x64.tar.gz | tar -xvz && \
-#     mv flyway-11.0.0 /flyway && \
-#     ln -s /flyway/flyway /usr/local/bin/flyway
-
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
+
+# Install PM2 globally
+RUN npm install -g pm2
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -28,13 +26,16 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install Node.js dependencies
-RUN npm install pm2 -g
+RUN npm install 
 
 # Copy the rest of the app's source code to the container
 COPY . .
 
+# Build the application (if applicable)
+RUN npm run build
+
 # Expose the port your server runs on
- EXPOSE 8055
+EXPOSE 8055
 
 # Command to start your server
-CMD [pm2 start npm --name tyb-website -- run start -- -p 8055]
+CMD ["pm2-runtime", "npm", "--", "start", "--", "--port", "8055"]
