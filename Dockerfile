@@ -37,4 +37,4 @@ COPY . .
  EXPOSE 8055
 
 # Command to start your server
-CMD [pm2 start npm --name nextjs-app -- run start -- -p 8055]
+CMD [pm2 start npm --name tyb-website -- run start -- -p 8055]
