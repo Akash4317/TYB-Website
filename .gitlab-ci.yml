@@ -61,6 +61,6 @@ deploy:
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
   script:
-    - ssh -o StrictHostKeyChecking=no $AWS_HOST "docker pull ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME} && docker stop ${CI_PROJECT_NAME} || true && docker rm ${CI_PROJECT_NAME} || true && docker run --env-file /home/ubuntu/gitlab/tyb-website/.env -d --name ${CI_PROJECT_NAME} -p 8055:8000 ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest"
+    - ssh -o StrictHostKeyChecking=no $AWS_HOST "docker pull ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME} && docker stop ${CI_PROJECT_NAME} || true && docker rm ${CI_PROJECT_NAME} || true && docker run --env-file /home/ubuntu/gitlab/tyb-website/.env -d --name ${CI_PROJECT_NAME} -p 8025:8025 ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest"
 
 
