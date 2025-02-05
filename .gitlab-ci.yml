@@ -1,81 +1,65 @@
 stages:
   - test
-  - build develop
-  - deploy develop
+  - build
+  - deploy
+
 variables:
-  APP_VERSION: $CI_PIPELINE_IID
+  MAJOR: "1"
+  MINOR: "2"
+  PATCH: $CI_PIPELINE_IID
+  SEMVER: "${MAJOR}.${MINOR}.${PATCH}"
   CI_CURRENT_BRANCH: master
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_TLS_CERTDIR: ""
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_STRATEGY: clone
+  AWS_HOST: "ubuntu@13.233.109.117"
 
-# include:
-#   - template: Jobs/Code-Quality.gitlab-ci.yml
-#   - template: Jobs/SAST.latest.gitlab-ci.yml
-#   - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
-#   - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
+include:
+  - template: Jobs/Code-Quality.gitlab-ci.yml
+  - template: Jobs/SAST.latest.gitlab-ci.yml
+  - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
+  - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
 
-# code_quality:
-#   rules:
-#     - if: $CODE_QUALITY_DISABLED
-#       when: never
-#     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#     - if: $CI_COMMIT_TAG
-
-.eslint:
-  image: node:20
+.code_quality:
+  rules:
+    - if: $CODE_QUALITY_DISABLED
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" # Run code quality job in merge request pipelines
+    - if: $CI_COMMIT_BRANCH == $CI_CURRENT_BRANCH      # Run code quality job in pipelines on the default  
+    
+eslint:
+  image: node:20      
   stage: test
-  script:
+  script: 
     - npm install --save-dev eslint --force
-    - node_modules/eslint/bin/eslint.js .
-
-.build:
-  image: node:20
-  script:
-    - npm i --force --legacy-peer-deps
-    - npm run build
-    # - echo $APP_VERSION > dist/version.html
-  artifacts:
-    paths:
-      - build
-
-.unit-test:
-  image: node:20
-  stage: test
-  script:
-    - npm run test:unit --coverage
-
-.deploy:
-  image:
-    name: amazon/aws-cli:2.4.11
-    entrypoint:
-      - ''
+    
+build:
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
   before_script:
-    - yum install -y zip
+    - apk add --no-cache curl jq python3 py-pip
+    - python3 -m venv venv
+    - . venv/bin/activate
+    - pip install --upgrade awscli
+  stage: build
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_CURRENT_BRANCH
   script:
-    - aws --version
-    - export TIMESTAMP=$(date +%Y%m%d%H%M%S)
-    - export BACKUP_DIR="/tmp/${AWS_S3_BUCKET}-${TIMESTAMP}"
-    - export ZIP_FILE="/tmp/${AWS_S3_BUCKET}-${TIMESTAMP}.zip"
-    - export BACKUP_KEY="${AWS_S3_BUCKET}-${TIMESTAMP}.zip"
-    - mkdir -p $BACKUP_DIR
-    - aws s3 sync s3://${AWS_S3_BUCKET} ${BACKUP_DIR}
-    - zip -r $ZIP_FILE $BACKUP_DIR
-    - aws s3 mb "s3://$BACKUP_BUCKET" || true
-    - aws s3 cp "$ZIP_FILE" "s3://${BACKUP_BUCKET}/${BACKUP_KEY}"
-    - rm -rf "${BACKUP_DIR}" "${ZIP_FILE}"
-    - echo "${AWS_S3_BUCKET} has been backed up successfully"
-    - aws s3 sync build s3://$AWS_S3_BUCKET --delete
-    - aws cloudfront create-invalidation --distribution ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+    - docker build -t $CI_REGISTRY_IMAGE:$SEMVER . 
+    - docker tag $CI_REGISTRY_IMAGE:$SEMVER ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest
+    - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ECR_REGISTRY
+    - docker push ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest
 
-build to develop:
-  stage: build develop
-  environment: develop
-  extends: ".build"
+deploy:
+  stage: deploy
+  before_script:
+    - apk add --no-cache openssh-client 
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+  script:
+    - ssh -o StrictHostKeyChecking=no $AWS_HOST "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ECR_REGISTRY || true && docker pull ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME} && docker stop ${CI_PROJECT_NAME} || true && docker rm ${CI_PROJECT_NAME} || true && docker run --env-file /home/ubuntu/gitlab/tyb-website/.env -d --name ${CI_PROJECT_NAME} -p 8025:8025 ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest"
 
-deploy to develop:
-  stage: deploy develop
-  dependencies:
-    - build to develop
-  environment: develop
-  extends: ".deploy"
+
