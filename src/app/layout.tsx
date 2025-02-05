@@ -1,9 +1,11 @@
 import "@/styles/globals.css";
 import localFont from "next/font/local";
-import Navbar from "@/components/nav";
 
 import { MantineProvider } from "@mantine/core";
 import { ThemeProvider } from "@/components/theme-provider";
+
+import Navbar from "@/components/nav";
+import Footer from "@/components/footer";
 
 const geistSans = localFont({
   src: "../../public/fonts/GeistVF.woff",
@@ -43,6 +45,7 @@ export default function RootLayout({
             <Navbar />
             <div className="content-container">
               {children}
+              <Footer />
             </div>
           </ThemeProvider>
         </MantineProvider>
