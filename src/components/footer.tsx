@@ -7,7 +7,7 @@ import ArrowImage from '@/images/Arrow.svg';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-[#FAE7E2] text-foreground pt-24 flex flex-col relative overflow-hidden">
+        <footer className="bg-[#FAE7E2] text-foreground pt-24 flex flex-col relative overflow-hidden mt-8">
             <div className="flex flex-col gap-8 justify-center items-center">
                 <Image src={TYBFullLogo} alt="company logo" />
                 <nav>
