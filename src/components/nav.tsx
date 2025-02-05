@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-import { ModeToggle } from './ui/toggle-theme';
+// import { ModeToggle } from './ui/toggle-theme';
 import { TYBICON } from '@/constants/imageImports';
 
 import { links } from '@/constants/constant';
