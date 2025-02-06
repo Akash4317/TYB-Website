@@ -31,6 +31,8 @@ const Hero = () => {
         src={markimage} 
         alt="markedImage" 
         className="absolute top-0 -left-4 " 
+        width={0}
+        height={0}
       />
 
       {/* Text Section */}
@@ -96,11 +98,11 @@ const Hero = () => {
             );
           })}
         </div>
-         <Image 
+         {/* <Image 
         src={Artboard} 
         alt="ArtBoard" 
         className="absolute top-[380px] -right-0 object-fit" 
-         />
+         /> */}
       </div>
 
      

@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.accordion_section {
+    background-color: var(--primary-background-color);
+    padding: 20px 50px;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.accordion h1 {
+    font-size: 32px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.accordion-item {
+    margin-top: 16px;
+    border: 1px solid #fcfcfc;
+    border-radius: 6px;
+    background: var(--primary-text-color);
+}
+
+.accordion-item .accordion-item-title {
+    position: relative;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+    color: #0c0c0c;
+}
+
+
+
+.accordion-item .accordion-item-title:hover .icon {
+    text-decoration: none;
+}
+
+.accordion-item .accordion-item-desc {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    font-size: 14px;
+    line-height: 22px;
+    color: #1a1a1a;
+    border-top: 1px solid #ddd;
+    padding: 0 20px;
+    box-sizing: border-box;
+    padding-top: 15px;
+    line-height: 1.5rem;
+}
+
+.links-footer {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.links-footer a,
+.links-footer .font-medium {
+    font-size: 16px;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.container-footer {
+    max-width: 1503px;
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container-footer .socical_icons {
+    gap: 1rem;
+    display: flex;
+}
+
+.accordion-item input[type="checkbox"] {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.accordion-item input[type="checkbox"]:checked~.accordion-item-desc {
+    max-height: 500px;
+}
+
+.accordion-item input[type="checkbox"]:checked~.accordion-item-title .icon:after {
+    content: "-";
+    font-size: 20px;
+}
+
+.accordion-item input[type="checkbox"]~.accordion-item-title .icon:after {
+    content: "+";
+    font-size: 20px;
+}
+
+.accordion-item:first-child {
+    margin-top: 0;
+}
+
+.accordion-item .icon {
+    margin-left: 14px;
+}
+
+@media screen and (max-width: 767px) {
+    .accordion_section {
+        padding: 20px 16px;
+    }
+
+    .accordion h1 {
+        font-size: 22px;
+    }
+
+    .feature-image {
+        max-width: 100%;
+    }
+
+    .customer_container_section {
+        padding: 10px 20px;
+    }
+}

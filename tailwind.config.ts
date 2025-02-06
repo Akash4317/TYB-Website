@@ -8,7 +8,10 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
+	  extend: {
+		  transitionTimingFunction: {
+			  'in-out-expo': 'cubic-bezier(0.4, 0, 0.2, 1)',
+		  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
