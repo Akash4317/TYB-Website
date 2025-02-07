@@ -1,0 +1,66 @@
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  MAJOR: "1"
+  MINOR: "2"
+  PATCH: $CI_PIPELINE_IID
+  SEMVER: "${MAJOR}.${MINOR}.${PATCH}"
+  CI_CURRENT_BRANCH: develop
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_TLS_CERTDIR: ""
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_STRATEGY: clone
+  AWS_HOST: "ubuntu@13.233.109.117"
+
+include:
+  - template: Jobs/Code-Quality.gitlab-ci.yml
+  - template: Jobs/SAST.latest.gitlab-ci.yml
+  - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
+  - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
+
+.code_quality:
+  rules:
+    - if: $CODE_QUALITY_DISABLED
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" # Run code quality job in merge request pipelines
+    - if: $CI_COMMIT_BRANCH == $CI_CURRENT_BRANCH      # Run code quality job in pipelines on the default  
+    
+eslint:
+  image: node:20      
+  stage: test
+  script: 
+    - npm install --save-dev eslint --force
+    
+build:
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  before_script:
+    - apk add --no-cache curl jq python3 py-pip
+    - python3 -m venv venv
+    - . venv/bin/activate
+    - pip install --upgrade awscli
+  stage: build
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_CURRENT_BRANCH
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$SEMVER . 
+    - docker tag $CI_REGISTRY_IMAGE:$SEMVER ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest
+    - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ECR_REGISTRY
+    - docker push ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest
+
+deploy:
+  stage: deploy
+  before_script:
+    - apk add --no-cache openssh-client 
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_CURRENT_BRANCH
+  script:
+    - ssh -o StrictHostKeyChecking=no $AWS_HOST "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ECR_REGISTRY || true && docker pull ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME} && docker stop ${CI_PROJECT_NAME} || true && docker rm ${CI_PROJECT_NAME} || true && docker run --env-file /home/ubuntu/gitlab/tyb-website/.env -d --name ${CI_PROJECT_NAME} -p 8025:8025 ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest"
+
