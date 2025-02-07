@@ -78,6 +78,10 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --cards: 3;
+    --cardHeight: 35vh;
+    --cardTopPadding: 1.5em;
+    --cardMargin: 4vw;
   }
 
   .dark {
@@ -105,6 +109,10 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --cards: 5;
+    --cardHeight: 45vh;
+    --cardTopPadding: 3rem;
+    --cardMargin: 5vw;
   }
 }
 
@@ -124,5 +132,64 @@ body {
   }
   h3 {
     @apply text-lg font-bold;
+  }
+}
+
+/* sticky card sliding */
+
+#cards {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--cards), var(--cardHeight));
+  gap: var(--cardMargin);
+  padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+  margin-bottom: var(--cardMargin);
+}
+
+#card1 {
+  --index: 1;
+}
+
+#card2 {
+  --index: 2;
+}
+
+#card3 {
+  --index: 2;
+}
+
+
+.card-slide {
+  position: sticky;
+  top: 120px;
+  padding-top: calc(var(--index) * var(--cardTopPadding));
+}
+@media(max-width: 768px) {
+  .card-slide {
+    position: relative;
+    top: 0;
+    padding-top: 20px;
+  }
+
+  #cards {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+/*  */
+.styled-text {
+  font-family: 'Poppins';
+  font-size: 20px;
+  font-weight: 500;letter-spacing: 2px;
+  text-align: center;
+  span span:first-child {
+    color: #B02430;
   }
 }
