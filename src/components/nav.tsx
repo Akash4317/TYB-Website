@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 // import { ModeToggle } from './ui/toggle-theme';
-import { TYBICON } from '@/constants/imageImports';
+import TYBICON from '@/images/tyb.svg';
 
 import { links } from '@/constants/constant';
 import { usePathname } from 'next/navigation';
@@ -33,8 +33,8 @@ const Navbar: React.FC = () => {
 					<Image
 						src={TYBICON}
 						alt="TYB Logo"
-						width={250}
-						height={58}
+						width={50}
+						// height={58}
 						priority
 					/>
 				</div>
