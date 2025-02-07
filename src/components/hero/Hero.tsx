@@ -2,7 +2,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Artboard, EfficiencyImage3, InnovationImage, markimage, SustainabilityImage4, TrustImage2 } from "@/constants/imageImports";
+import markimage from "@/images/mark.png";
+import EfficiencyImage3 from "@/images/EfficiencyImage.png";
+import InnovationImage from "@/images/InnovationImage.png";
+import SustainabilityImage4 from "@/images/SustainabilityImage.png";
+import TrustImage2 from "@/images/TrustImage.png";
+
 
 const texts = ["Innovation.", "Trust.", "Efficiency.", "Sustainability."];
 const images = [InnovationImage, TrustImage2, EfficiencyImage3, SustainabilityImage4];

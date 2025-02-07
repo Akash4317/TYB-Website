@@ -1,7 +1,11 @@
 'use client'
 import React from 'react'
 import Subheading from '../ui/Subheading'
-import { chat1, chat2, chat3, ellipse, ellipse2 } from '@/constants/imageImports'
+import chat1 from "@/images/chat1.png";
+import chat2 from "@/images/chat2.png";
+import chat3 from "@/images/chat3.png";
+import ellipse from "@/images/Ellipse.svg"
+import ellipse2 from "@/images/Ellipse2.svg"
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
@@ -103,7 +107,7 @@ const Bandhu = () => {
 
                           <div className="relative z-10">
                               <Image
-                                  src={chat1}
+                                  src={chat2}
                                   alt="Chat Preview"
                                   width={450}
                                   height={0}

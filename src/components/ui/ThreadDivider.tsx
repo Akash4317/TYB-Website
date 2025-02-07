@@ -1,7 +1,8 @@
 "use client"
-import { coneSrc, threadSrc } from '@/constants/imageImports';
 import Image from 'next/image';
 import React from 'react';
+import coneSrc from "@/images/cone.png";
+import threadSrc from "@/images/Line.png"
 
 interface ThreadDividerProps {
     className?: string; 

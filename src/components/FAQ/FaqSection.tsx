@@ -1,7 +1,7 @@
-import React from 'react'
-import Subheading from '../ui/Subheading'
-import './faq.css'
-import { FaqBG } from '@/constants/imageImports'
+import React from 'react';
+import Subheading from '../ui/Subheading';
+import './faq.css';
+import FaqBG from "@/images/faqbg.png";
 
 const FaqSection = () => {
     return (

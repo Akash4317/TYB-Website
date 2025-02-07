@@ -1,14 +1,11 @@
 "use client";
-
 import React from "react";
-
-
 import Image from "next/image";
 import Link from "next/link";
 import { AlignLeft, X } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
-import { icon } from "@/constants/imageImports";
-import { Button } from "./ui/button";
+import icon from "@/images/Icon.png"
+
 
 const MobileNav = () => {
     const [isOpen, setIsOpen] = React.useState(false);

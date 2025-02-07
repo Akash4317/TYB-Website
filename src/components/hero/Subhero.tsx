@@ -1,5 +1,7 @@
 "use client"
-import { Artboard, markimage, TYBWEB } from '@/constants/imageImports'
+import markimage from '@/images/mark.png'
+import TYBWEB from '@/images/TYBWeb.png'
+import Artboard from '@/images/Artboard.png'
 import Image from 'next/image'
 import React from 'react'
 import Subheading from '../ui/Subheading'

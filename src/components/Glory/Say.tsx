@@ -1,8 +1,11 @@
 'use client'
-import React from 'react'
-import Subheading from '../ui/Subheading'
-import Image from 'next/image'
-import { avataar, icon, markimage, rightMark } from '@/constants/imageImports'
+import React from 'react';
+import Subheading from '../ui/Subheading';
+import Image from 'next/image';
+import markimage from "@/images/mark.png";
+import icon from "@/images/Icon.png"
+import avatar from "@/images/avataar.png"
+import rightMark from "@/images/rightMark.png"
 import {motion} from 'framer-motion'
 
 const Say = () => {
@@ -41,7 +44,7 @@ const Say = () => {
                               </p>
                           </div>          
                               <div  className="absolute -left-2 w-16 h-16 bg-white border-4 border-white rounded-full overflow-hidden shadow-md">     
-                              <Image src={avataar} alt='avatar' width={0} height={0} className="w-full h-full object-cover" />
+                              <Image src={avatar} alt='avatar' width={0} height={0} className="w-full h-full object-cover" />
                               </div>
                       
                       </motion.div>
@@ -69,7 +72,7 @@ const Say = () => {
                               </p>
                           </div>
                               <div className="absolute -right-2 w-16 h-16 bg-white border-4 border-white rounded-full overflow-hidden shadow-md">                            
-                              <Image src={avataar} alt='avatar' width={0} height={0} className="w-full h-full object-cover" />
+                              <Image src={avatar} alt='avatar' width={0} height={0} className="w-full h-full object-cover" />
                               </div>
                       </motion.div>
                   ))}
