@@ -4,10 +4,11 @@ import React from 'react'
 import Subheading from '../ui/Subheading'
 import Image from 'next/image'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { testimonials } from '@/constants/constant';
 
 const Glory = () => {
+    const swiper = useSwiper();
     return (
         <div>
             <Subheading text='Moment of Glory' className='text-[#B02430] text-center py-[40px]' />
@@ -25,9 +26,10 @@ const Glory = () => {
                     <SwiperSlide
                         key={index} className="flex justify-center">
                         <div className="bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row gap-10 w-3/4 ">
-                            {/* YouTube Video Embed */}
                             <div className="w-full md:w-1/2 rounded-xl overflow-hidden p-4 bg-yellow-400">
                                 <Image className='w-full' src={testimonial.image} width={0} height={0} alt='carousel' />
+                                
+                                {/* YouTube Video Embed */}
                                 
                                 {/* <iframe
                                     className="w-full h-56 md:h-full"
@@ -49,10 +51,12 @@ const Glory = () => {
                                     ))}
                                 </ul>
                             </div>
+                           
                         </div>
                     </SwiperSlide>
                 ))}
                 </Swiper>
+                <button onClick={() => swiper.slideNext()}>Slide to the next slide</button>
             </div>
         </div>
     )

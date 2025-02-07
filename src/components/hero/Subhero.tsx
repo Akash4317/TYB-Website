@@ -22,7 +22,7 @@ const Subhero = () => {
                     <p className='text-[#323433] w-full md:w-[620px] my-5 font-poppins text-[18px] font-text font-medium leading-[130%]'>
                         At The Yarn Bazaar, we are reshaping the yarn and textile industry with a tech-first approach. Our platform bridges the gap between buyers and sellers, creating a seamless and transparent trading experience by leveraging advanced tools and a commitment to innovation.
                     </p>
-                    <Button variant='default' size='lg' className='mt-2 w-[187px] text-md font-poppins bg-[#F89E24] font-[600] rounded-[15px]'>Talk To Us</Button>
+                    <Button variant='default' size='lg' className='mt-2 w-[187px] text-md font-poppins bg-[#F89E24] font-[600] rounded-[15px]' onClick={() => window.location.href = '/contact-us'}>Talk To Us</Button>
                 </div>
                 <div className='md:w-1/2 flex justify-center'>
                     <Image src={TYBWEB} alt='WEB Illustrator' className=' object-contain' width={454} height={343.906} />

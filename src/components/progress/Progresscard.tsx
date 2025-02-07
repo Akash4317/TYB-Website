@@ -34,7 +34,7 @@ const Progresscard: React.FC<{ info: CardInfo }> = ({ info }) => {
                               <p className="text-base">{card.description}</p>
                           </motion.div>
 
-                          <div className="absolute inset-0 border-4 border-yellow-400 rounded-2xl  pointer-events-none transition-all duration-300 group-hover:opacity-0" />
+                          <div className="absolute inset-0 border-8 border-yellow-400 rounded-2xl  pointer-events-none transition-all duration-300 group-hover:opacity-0" />
                       </div>
                   ))}
               </div>

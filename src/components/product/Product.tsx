@@ -6,7 +6,7 @@ import { sliderCardData } from '@/constants/constant'
 const Product = () => {
   return (
       <div>
-          <Subheading text='Our Products' className='text-[#B02430] text-center pt-[40px] sticky top-0' />
+          <Subheading text='Our Products' className='text-[#B02430] text-center pt-[40px] sticky -top-5' />
           <div>
            <div className='flex flex-col md:flex-row p-4 md:p-6 items-center  justify-between h-full relative'>
              <div
