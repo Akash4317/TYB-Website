@@ -11,7 +11,8 @@ import { usePathname } from 'next/navigation';
 const Navbar: React.FC = () => {
 	const router = usePathname();;
 	const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
-	const [underlineLeft, setUnderlineLeft] = useState(-25);
+	const [underlineLeft, setUnderlineLeft] = useState(-30);
+	const [underlineWidth, setUnderlineWidth] = useState(110);
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
@@ -22,7 +23,8 @@ const Navbar: React.FC = () => {
 		const activeLink = linkRefs.current[activeIndex];
 		if (!activeLink) return;
 
-		setUnderlineLeft(activeLink.offsetLeft - 25);
+		setUnderlineLeft(activeLink.offsetLeft - 30 );
+		setUnderlineWidth(activeLink.offsetWidth-110);
 	}, [router]);
 
 
@@ -64,7 +66,7 @@ const Navbar: React.FC = () => {
 						className="absolute -bottom-2 transition-all duration-300 h-[20px]"
 						style={{
 							left: underlineLeft,
-							width: '100px',
+							width: underlineWidth,
 						}}
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 124 20"
@@ -84,5 +86,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
-
