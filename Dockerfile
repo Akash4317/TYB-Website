@@ -12,12 +12,11 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install webpack webpack-cli --save-dev
-
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
 
+RUN npm install webpack webpack-cli --save-dev
 # Install PM2 globally
 RUN npm install -g pm2
 
