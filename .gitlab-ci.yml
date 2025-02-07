@@ -15,6 +15,7 @@ variables:
   GIT_STRATEGY: clone
   AWS_HOST: "ubuntu@13.233.186.48"
 
+
 include:
   - template: Jobs/Code-Quality.gitlab-ci.yml
   - template: Jobs/SAST.latest.gitlab-ci.yml
