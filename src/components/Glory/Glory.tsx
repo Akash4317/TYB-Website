@@ -3,33 +3,52 @@ import 'swiper/css/bundle';
 import React from 'react'
 import Subheading from '../ui/Subheading'
 import Image from 'next/image'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { testimonials } from '@/constants/constant';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel';
 
 const Glory = () => {
-    const swiper = useSwiper();
     return (
         <div>
-            <Subheading text='Moment of Glory' className='text-[#B02430] text-center py-[40px]' />
-            <div className="w-full px-4 py-6">
-                <Swiper
-                    modules={[Navigation, Pagination, Autoplay]}
-                    spaceBetween={20}
-                    slidesPerView={1.2}
-                    centeredSlides={true}
-                    navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
-                    pagination={{ clickable: true }}
-                    autoplay={{ delay: 4000, disableOnInteraction: false }}
-                >
-                {testimonials.map((testimonial, index) => (
-                    <SwiperSlide
-                        key={index} className="flex justify-center">
-                        <div className="bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row gap-10 w-3/4 ">
-                            <div className="w-full md:w-1/2 rounded-xl overflow-hidden p-4 bg-yellow-400">
-                                <Image className='w-full' src={testimonial.image} width={0} height={0} alt='carousel' />
-                                
-                                {/* YouTube Video Embed */}
+            <Subheading text='Moment of Glory' className='text-[#B02430] text-center py-[20px]' />
+            <Carousel>
+                <CarouselContent className="flex justify-center my-10 gap-6">
+                    {testimonials.map((testimonial, index) => (
+                        <CarouselItem
+                            key={index}
+                            className="basis-full md:basis-2/3 lg:basis-2/3 flex justify-center"
+                        >
+                            <div className="bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row gap-12 w-full ">
+                                <div className="w-full md:w-1/2 rounded-xl overflow-hidden p-4 bg-yellow-400">
+                                    <Image className='w-full h-auto' src={testimonial.image} width={400} height={300} alt='carousel' />
+                                </div>
+                                <div className="w-full md:w-1/2 flex flex-col justify-center">
+                                    <p className="text-[#B02430] font-poppins text-[28px] font-semibold leading-[130%]">{testimonial.title}</p>
+                                    <ul className="mt-4 space-y-2">
+                                        {testimonial.highlights.map((item, idx) => (
+                                            <li key={idx} className="flex items-center text-gray-700 text-lg">
+                                                <span className="text-[#B02430] mr-5 text-3xl">◆</span> {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <div className="flex justify-center gap-4  mt-12">
+                    <CarouselPrevious className="static border border-[#B02430] bg-[#B02430] text-white h-12 w-20 hover:bg-[#932730] transform" />
+                    <CarouselNext className="static border border-[#B02430] bg-[#B02430] text-white h-12 w-20 hover:bg-[#932730]" />
+                </div>
+            </Carousel>
+        </div>
+    )
+}
+
+export default Glory
+
+
+
+ {/* YouTube Video Embed */}
                                 
                                 {/* <iframe
                                     className="w-full h-56 md:h-full"
@@ -39,27 +58,3 @@ const Glory = () => {
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe> */}
-                            </div>
-                            {/* Text Content */}
-                            <div className="w-full md:w-1/2 flex flex-col justify-center">
-                                <p className="text-[#B02430] font-poppins text-[25px] text-normal font-medium leading-[130%]">{testimonial.title}</p>
-                                <ul className="mt-4 space-y-2">
-                                    {testimonial.highlights.map((item, idx) => (
-                                        <li key={idx} className="flex items-center text-gray-700">
-                                            <span className="text-[#B02430] mr-5 text-3xl">◆</span> {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                           
-                        </div>
-                    </SwiperSlide>
-                ))}
-                </Swiper>
-                <button onClick={() => swiper.slideNext()}>Slide to the next slide</button>
-            </div>
-        </div>
-    )
-}
-
-export default Glory

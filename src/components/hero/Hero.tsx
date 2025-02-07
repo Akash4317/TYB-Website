@@ -31,11 +31,11 @@ const Hero = () => {
   ]; 
 
   return (
-    <div className="flex flex-col md:flex-row p-4 md:p-6 items-center mt-4 gap-4 md:gap-8 h-full relative">
+    <div className="flex flex-col md:flex-row p-4 md:p-6 items-center mt-4 gap-4  h-full relative">
       <Image 
         src={markimage} 
         alt="markedImage" 
-        className="absolute top-0 -left-4 " 
+        className="absolute top-0 -left-4 hidden md:block" 
         width={0}
         height={0}
       />
@@ -46,11 +46,11 @@ const Hero = () => {
           Empowering <br className="hidden md:block" /> The Yarn Industry
         </p>
         
-        <div className="flex mt-2 md:mt-4 items-end">
+        <div className="flex items-end">
           <p className="text-[#A3A2A2] p-2 text-center font-inter text-[24px] md:text-[30px] font-extrabold leading-[130%]">
             with
           </p>
-          <span className="relative block h-[40px] md:h-[51px] w-[280px] md:w-[535px]">
+          <span className="relative block h-[40px] md:h-[51px] w-[280px] mb-5 md:mb-[50px] md:w-[535px]">
             {texts.map((text, i) => (
               <motion.h1
                 key={text}
@@ -65,14 +65,14 @@ const Hero = () => {
           </span>
         </div>
 
-        <p className="text-[#111] text-base md:text-xl mt-1 md:mt-3 py-2 md:py-4 px-2 font-semibold">
+        <p className="text-[#111] text-base md:text-xl  py-2 md:py-4 px-2 font-semibold">
           Discover and Buy Top Quality Yarn at Unbeatable Prices
         </p>
       </div>
 
       {/* Image Grid Section */}
-      <div className="w-full md:w-1/2 bg-[#F4F1E2] relative h-[300px] md:h-[500px]  ">
-        <div className="w-[70%] h-full mr-6 transform md:-rotate-[45deg]">
+      <div className="w-full md:w-1/2 md:bg-[#F4F1E2] relative h-[300px] md:h-[500px]  ">
+        <div className="w-[70%] h-full mr-6 transform -rotate-[45deg]">
           {images.map((img, i) => {
             const newPosition = (i - index + images.length) % images.length;
             const isActive = newPosition === 0;
@@ -103,11 +103,7 @@ const Hero = () => {
             );
           })}
         </div>
-         {/* <Image 
-        src={Artboard} 
-        alt="ArtBoard" 
-        className="absolute top-[380px] -right-0 object-fit" 
-         /> */}
+         
       </div>
 
      

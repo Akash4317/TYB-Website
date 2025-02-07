@@ -43,7 +43,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navbar />
-            <div className="content-container overflow-hidden">
+            <div className="content-container overflow">
               {children}
               <Footer />
             </div>
