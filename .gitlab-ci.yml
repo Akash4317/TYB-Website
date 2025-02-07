@@ -8,7 +8,7 @@ variables:
   MINOR: "2"
   PATCH: $CI_PIPELINE_IID
   SEMVER: "${MAJOR}.${MINOR}.${PATCH}"
-  CI_CURRENT_BRANCH: master
+  CI_CURRENT_BRANCH: develop
   DOCKER_HOST: tcp://docker:2375/
   DOCKER_TLS_CERTDIR: ""
   GIT_SUBMODULE_STRATEGY: recursive
@@ -59,6 +59,8 @@ deploy:
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_CURRENT_BRANCH
   script:
     - ssh -o StrictHostKeyChecking=no $AWS_HOST "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ECR_REGISTRY || true && docker pull ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME} && docker stop ${CI_PROJECT_NAME} || true && docker rm ${CI_PROJECT_NAME} || true && docker run --env-file /home/ubuntu/gitlab/tyb-website/.env -d --name ${CI_PROJECT_NAME} -p 8025:8025 ${AWS_ECR_REGISTRY}/${CI_PROJECT_NAME}:latest"
 
