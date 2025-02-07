@@ -13,7 +13,7 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   GIT_SUBMODULE_STRATEGY: recursive
   GIT_STRATEGY: clone
-  AWS_HOST: "ubuntu@13.233.109.117"
+  AWS_HOST: "ubuntu@13.233.186.48"
 
 include:
   - template: Jobs/Code-Quality.gitlab-ci.yml
