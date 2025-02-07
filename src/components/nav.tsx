@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 // import { ModeToggle } from './ui/toggle-theme';
-import TYBICON from '@/images/tyb.svg';
+import TYBIconImage from "@/images/TybIcon.png";
 
 import { links } from '@/constants/constant';
 import { usePathname } from 'next/navigation';
@@ -31,10 +31,9 @@ const Navbar: React.FC = () => {
 			<div className="mx-auto flex justify-between items-center">
 				<div className="flex items-center space-x-2">
 					<Image
-						src={TYBICON}
+						src={TYBIconImage}
 						alt="TYB Logo"
-						width={50}
-						// height={58}
+						width={250}
 						priority
 					/>
 				</div>
