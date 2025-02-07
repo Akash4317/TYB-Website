@@ -23,8 +23,9 @@ body {
 .content-container {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem;
+  background-color:#fdf3f0;
 }
+
 
 
 ::-webkit-scrollbar {
