@@ -1,24 +1,35 @@
-import Image from "next/image";
-import TYBImage from "@/images/tyb.svg";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "The Yarn Bazaar",
-  description: "The Yarn Bazaar is a modern, efficient, and transparently managed marketplace for yarn buyers and sellers to discover real-time yarn prices, information, and market trends.",
-};
+import Bandhu from "@/components/bandhu/Bandhu";
+import FaqSection from "@/components/FAQ/FaqSection";
+import Glory from "@/components/Glory/Glory";
+import Say from "@/components/Glory/Say";
+import Hero from "@/components/hero/Hero";
+import Subhero from "@/components/hero/Subhero";
+import MobileNav from "@/components/MobileNav";
+import Product from "@/components/product/Product";
+import Progress from "@/components/progress/Progress";
+import Divider from "@/components/ui/divider";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center gap-4 h-full">
-      <Image
-        src={TYBImage}
-        alt="TYB Logo"
-        width={150}
-        height={150}
-        className="aspect-square"
-        priority
-      />
-      <h1 className="text-6xl">Hey TYB!</h1>
-    </div>
+    <>
+      <div className="block md:hidden mb-[100px]">
+        <MobileNav />
+      </div>
+      <Hero />
+      <Subhero />
+      <Divider />
+      <Progress />
+      <Divider />
+      <Glory />
+      <Divider />
+      <Say />
+      <Divider />
+      <Product />
+      <Divider />
+      <Bandhu />
+      <Divider />
+      <FaqSection />
+      <Divider />
+    </>
   );
 }

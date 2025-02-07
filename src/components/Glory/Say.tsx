@@ -16,14 +16,14 @@ const Say = () => {
               <Image
                   src={markimage}
                   alt="markedImage"
-                  className="absolute -bottom-10 -left-4 "
+                  className="absolute -bottom-10 -left-4 hidden md:block"
                   width={0}
                   height={0}
               />
               <Image
                   src={rightMark}
                   alt="markedImage"
-                  className="absolute -top-10 -right-4  object-cover"
+                  className="absolute -top-10 -right-4  object-cover hidden md:block"
                   width={0}
                   height={0}
               />

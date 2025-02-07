@@ -13,7 +13,7 @@ const Progresscard: React.FC<{ info: CardInfo }> = ({ info }) => {
   return (
     <div>
           <div className='w-full my-[50px]'>
-              <div className="flex justify-center items-center h-full gap-6 flex-wrap p-6 py-10">
+              <div className="flex justify-center items-center h-full gap-6 flex-wrap py-12">
                   {info.cards.map((card, index) => (
                       <div
                           key={index}

@@ -5,6 +5,22 @@
 
 }
 
+:root {
+    --primary-color: #A33B35;
+    --primary-navbar-color: #f8f7f4;
+    --primary-text: #A33B35;
+    --primary-offer-color: #d2d7d2;
+    --nav-color: #f8f7f4;
+    --ccc-color: #ccc;
+    --333-color: #333;
+    --text-color: #818181;
+    --custom-dropdown-color: #f0f0f0;
+    --red-color: red;
+    --indicator-inactive-color: #000;
+    --indicator-active-color: #fff;
+    --carousel-bg-color: #f8f7f4;
+}
+
 .accordion_section {
     background-color: var(--primary-background-color);
     padding: 20px 50px;
@@ -35,7 +51,7 @@
     margin: 0;
     display: flex;
     width: 100%;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     justify-content: space-between;
     flex-direction: row-reverse;
@@ -44,7 +60,7 @@
     align-items: center;
     transition: background-color 0.3s ease;
     font-weight: 500;
-    color: #0c0c0c;
+    color: #A33B35;
 }
 
 
@@ -57,9 +73,9 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 22px;
-    color: #1a1a1a;
+    color: #A33B35;
     border-top: 1px solid #ddd;
     padding: 0 20px;
     box-sizing: border-box;

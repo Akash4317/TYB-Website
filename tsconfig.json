@@ -36,6 +36,9 @@
       "@/images/*": [
         "public/images/*"
       ],
+      "@/icons/*": [
+        "public/icons/*"
+      ],
       "@/styles/*": [
         "src/styles/*"
       ],

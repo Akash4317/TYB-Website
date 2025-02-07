@@ -9,11 +9,11 @@ import { Button } from '../ui/button'
 
 const Subhero = () => {
     return (
-        <div className='flex flex-col md:flex-row p-4 md:p-6 items-center mt-4 gap-4 md:gap-8 h-full relative'>
+        <div className='flex flex-col md:flex-row p-4 md:p-6 items-center -mt-[60px] md:mt-4 gap-4 md:gap-8 h-full relative'>
             <Image
                 src={markimage}
                 alt="markedImage"
-                className="absolute top-0 -left-4 "
+                className="absolute top-0 -left-4 hidden md:block"
                 width={0}
                 height={0}
             />
@@ -30,11 +30,7 @@ const Subhero = () => {
                     <Image src={TYBWEB} alt='WEB Illustrator' className=' object-contain' width={454} height={343.906} />
                 </div>
             </div>
-              <Image 
-                src={Artboard}
-                alt="ArtBoard"
-                className="absolute top-[380px] -right-0 object-fit"
-            /> 
+              
         </div>
     )
 }

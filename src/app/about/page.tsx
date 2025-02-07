@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Image from 'next/image';
 import Divider from '@/components/ui/divider';
 
+import BoxImage from "@/icons/box.svg";
 import TYBLogo from "@/images/tyb.svg";
 import UserImage from "@/images/about-us/user.svg";
 import BgLineImage from "@/images/about-us/bgLine.svg";
@@ -159,7 +160,7 @@ const DrivesUsCard: React.FC<{ title: string; description: string; image: string
 				<Image src={ForegroundImage} alt="Foreground Image" />
 			</div>
 			<div className="bg-[#ffdb8d] rounded-2xl h-full left-3 w-[90%] absolute z-10 flex flex-col items-center justify-evenly p-4 -top-6 group-hover:-top-52 transition-all duration-500">
-				<Image src={image} alt="Target Image"/>
+				<Image src={image} alt="Target Image" />
 				<p className='text-center'>{description}</p>
 			</div>
 			<p className="absolute z-40 text-5xl w-[80%] left-[10%] top-[10%] h-full items-center flex justify-center font-bold text-center">{title}</p>
@@ -201,72 +202,93 @@ const HassleFreeProcurement = () => {
 		<div className="flex flex-col gap-16 min-h-[1080px]">
 			<h1 className="text-center text-4xl text-red-800">Hassle-Free Procurement</h1>
 			<div className="text-center flex flex-col gap-16 justify-center items-center">
-				<div className="border border-red-800 relative w-[1px] h-[1080px]">
+				<div className="border border-[#F89E24] relative w-[1px] h-[1080px]">
 					<div className="flex flex-col items-center absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 						<Image src={UserImage} alt="User Image" width={120} />
 						<div className="bg-[#F8D849] flex items-center justify-center rounded-xl min-h-10 w-[160px]">
-							Our Happy Buyer
+							• Our Happy Buyer
 						</div>
 					</div>
-					<div className="border border-[#F89E24] rounded-full aspect-square h-20 flex items-center justify-center absolute top-[160px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-red-50">
+					<div className="border-2 border-[#F89E24] rounded-full aspect-square w-[80px] flex items-center justify-center absolute top-[160px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-red-50">
 						<Image src={TYBLogo} alt="TYB Icon" width={30} />
 					</div>
-					<RedCircle top="280px" left="32px">
-
-						<div className="relative">
-							<div className="border border-red-800 absolute w-[120px] right-0"></div>
-							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[160px] absolute -top-[20px] -left-[260px] px-4">
-								<p>Recieved Query</p>
-							</div>
+					<div className='absolute top-[240px] left-[-46px] z-30 aspect-square w-[90px]'>
+						<div className='w-full h-full flex justify-center items-center'>
+							<div className='bg-red-800 rounded-full aspect-square w-[80px] left-[-8px] z-40'></div>
+							<Image src={BoxImage} alt="order query" width={40} className='z-50 absolute filter invert' />
+							<div className='rounded-full absolute aspect-square w-[90px] border-2 border-[#F89E24] p-1 bg-[#fdf3f0]'></div>
+							<div className='absolute right-1/2 h-[90px] w-[50px] bg-[#fdf3f0]'></div>
 						</div>
-					</RedCircle>
-					<div className="border border-[#F89E24] rounded-full aspect-square h-20 flex items-center justify-center absolute top-[400px] -left-8 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-red-50">
-						<Image src={UserImage} alt="User Image" width={120} />
 						<div className="relative">
-							<div className="border border-red-800 absolute w-[120px]"></div>
-							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-16 min-w-[160px] absolute -top-[35px] -right-[260px] px-4">
-								<p>Confirm with Seller</p>
-								<p>Check inventory</p>
+							<div className="border border-[#F89E24] absolute w-[120px] top-[-45px] -left-2/3"></div>
+							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[160px] absolute -top-[65px] -left-[200px] px-4">
+								<p>• Recieved Query</p>
 							</div>
 						</div>
 					</div>
-					<RedCircle top="520px" left="32px">
+					<div className="border-2 border-[#F89E24] rounded-full aspect-square h-20 flex items-center justify-center absolute top-[400px] -left-8 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-red-50">
+						<Image src={UserImage} alt="User Image" width={120} />
 						<div className="relative">
-							<div className="border border-red-800 absolute w-[120px] right-0"></div>
-							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[160px] absolute -top-[20px] -left-[260px] px-4">
-								<p>Internal Quality Check</p>
+							<div className="border border-[#F89E24] absolute w-[120px]"></div>
+							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-16 min-w-[160px] absolute -top-[35px] -right-[260px] px-4">
+								<p>• Confirm with Seller</p>
+								<p>• Check inventory</p>
 							</div>
 						</div>
-					</RedCircle>
+					</div>
+					<div className='absolute top-[480px] left-[-26px] z-30 aspect-square w-[90px]'>
+						<div className='w-full h-full flex justify-center items-center'>
+							<div className='bg-red-800 rounded-full aspect-square w-[80px] left-[-8px] z-40'></div>
+							<Image src={BoxImage} alt="order query" width={40} className='z-50 absolute filter invert' />
+							<div className='rounded-full absolute aspect-square w-[90px] border-2 border-[#F89E24] p-1 bg-[#fdf3f0]'>
+								<Image src={BoxImage} alt="User Image" width={60} />
+							</div>
+							<div className='absolute left-[-20px] h-[80px] w-[50px] bg-[#fdf3f0]'></div>
+						</div>
+						<div className="relative">
+							<div className="border border-[#F89E24] absolute w-[120px] top-[-45px] -left-2/3"></div>
+							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[160px] absolute -top-[65px] -left-[260px] px-4">
+								<p>• Internal Quality Check</p>
+							</div>
+						</div>
+					</div>
 					<RedCircle top="640px" left="-32px">
 						<div className="relative">
 							<div className="border border-red-800 absolute w-[120px] left-0"></div>
 							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[220px] absolute -top-[20px] -right-[320px] px-4">
-								<p>Send test samples to buyer</p>
+								<p>• Send test samples to buyer</p>
 							</div>
 						</div>
 					</RedCircle>
-					<RedCircle top="760px" left="32px">
+					<div className='absolute top-[720px] left-[-26px] z-30 aspect-square w-[90px]'>
+						<div className='w-full h-full flex justify-center items-center'>
+							<div className='bg-red-800 rounded-full aspect-square w-[80px] left-[-8px] z-40'></div>
+							<Image src={BoxImage} alt="order query" width={40} className='z-50 absolute filter invert' />
+							<div className='rounded-full absolute aspect-square w-[90px] border-2 border-[#F89E24] p-1 bg-[#fdf3f0]'>
+								<Image src={BoxImage} alt="User Image" width={60} />
+							</div>
+							<div className='absolute left-[-20px] h-[80px] w-[50px] bg-[#fdf3f0]'></div>
+						</div>
 						<div className="relative">
-							<div className="border border-red-800 absolute w-[120px] right-0"></div>
-							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[160px] absolute -top-[20px] right-[120px] px-4">
-								<p>Order Confirmed</p>
+							<div className="border border-[#F89E24] absolute w-[120px] top-[-45px] -left-2/3"></div>
+							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[160px] absolute -top-[65px] -left-[260px] px-4">
+								<p>• Internal Quality Check</p>
 							</div>
 						</div>
-					</RedCircle>
+					</div>
 					<RedCircle top="880px" left="-32px">
 						<div className="relative">
 							<div className="border border-red-800 absolute w-[120px] left-0"></div>
 							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[220px] absolute -top-[20px] -right-[320px] px-4">
-								<p>Pre dispatch QC</p>
+								<p>• Pre dispatch QC</p>
 							</div>
 						</div>
 					</RedCircle>
 					<RedCircle top="1000px" left="32px">
 						<div className="relative">
 							<div className="border border-red-800 absolute w-[120px] right-0"></div>
-							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[100px] absolute -top-[20px] right-[80px] px-4">
-								<p>Fulfillment</p>
+							<div className="bg-[#F8D849] rounded-xl flex flex-col items-start justify-center min-h-10 min-w-[120px] absolute -top-[20px] right-[80px] px-4">
+								<p>• Fulfillment</p>
 							</div>
 						</div>
 					</RedCircle>
