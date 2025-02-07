@@ -36,7 +36,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port your server runs on
-EXPOSE 8055
+#EXPOSE 8055
 
 # Command to start your server
-CMD ["pm2-runtime", "npm", "--", "start", "--", "--port", "8055"]
+CMD ["pm2-runtime", "npm", "--", "start", "--", "--port", "80"]
