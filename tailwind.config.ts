@@ -58,7 +58,31 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+			keyframes: {
+				scrollUp: {
+					"0%": { transform: "translateY(0)" },
+					"100%": { transform: "translateY(-50%)" },
+				},
+				scrollDown: {
+					"0%": { transform: "translateY(-50%)" },
+					"100%": { transform: "translateY(0)" },
+				},
+				scrollRight: {
+					"0%, 100%": { transform: "translateX(0)" },
+					"50%": { transform: "translateX(50%)" },
+				},
+				scrollLeft: {
+					"0%, 100%": { transform: "translateX(50%)" },
+					"50%": { transform: "translateX(0)" },
+				},
+			},
+			animation: {
+				scroll: "scrollUp 15s linear infinite",
+				scrollDown: "scrollDown 15s linear infinite",
+				scrollRight: "scrollRight 30s linear infinite",
+				scrollLeft: "scrollLeft 30s linear infinite",
+			},
   	}
   },
   plugins: [require("tailwindcss-animate")],
