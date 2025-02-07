@@ -1,9 +1,11 @@
 import "@/styles/globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
-import Navbar from "@/components/nav";
-import { ModeToggle } from "@/components/ui/toggle-theme";
+
+import { MantineProvider } from "@mantine/core";
 import { ThemeProvider } from "@/components/theme-provider";
+
+import Navbar from "@/components/nav";
+import Footer from "@/components/footer";
 
 const geistSans = localFont({
   src: "../../public/fonts/GeistVF.woff",
@@ -22,15 +24,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <html lang="en">
-        <head>
-          <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <meta name="theme-color" content="#000000" />
-          <link rel="icon" href='/images/tyb.svg' />
-        </head>
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href="/images/tyb.svg" />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <MantineProvider >
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -40,13 +45,11 @@ export default function RootLayout({
             <Navbar />
             <div className="content-container">
               {children}
-              <div className="absolute bottom-4 right-4">
-                <ModeToggle />
-              </div>
+              <Footer />
             </div>
           </ThemeProvider>
-        </body>
-      </html>
-    </>
+        </MantineProvider>
+      </body>
+    </html>
   );
 }
