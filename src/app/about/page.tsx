@@ -6,8 +6,8 @@ import Divider from '@/components/ui/divider';
 
 import BoxImage from "@/icons/box.svg";
 import TYBLogo from "@/images/tyb.svg";
+import BgLineImage from "@/images/bgLine.svg";
 import UserImage from "@/images/about-us/user.svg";
-import BgLineImage from "@/images/about-us/bgLine.svg";
 import TargetImage from "@/images/about-us/target.svg";
 import TeamWorkImage from "@/images/about-us/teamwork.svg";
 import JourneyImage from "@/images/about-us/journeyLine.svg";
