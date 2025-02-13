@@ -39,7 +39,6 @@ export default function RootLayout({
         <MantineProvider >
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
             disableTransitionOnChange
           >
             <Navbar />
