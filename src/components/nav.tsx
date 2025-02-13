@@ -1,14 +1,18 @@
 "use client"
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import TYBIconImage from "@/images/TybIcon.png";
 import { links } from '@/constants/constant';
+import Link from "next/link";
+import { AlignLeft, X } from "lucide-react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { usePathname } from 'next/navigation';
+import icon from "@/images/Icon.png"
 
 const Navbar: React.FC = () => {
 	const router = usePathname();
 	const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
+	const [isOpen, setIsOpen] = React.useState(false);
 	const [underlineLeft, setUnderlineLeft] = useState(30);
 	const [underlineWidth, setUnderlineWidth] = useState(60);
 
