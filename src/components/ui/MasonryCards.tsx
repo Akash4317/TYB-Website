@@ -3,6 +3,7 @@
 import type React from "react"
 import Masonry from "react-masonry-css"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 interface Card {
     imageUrl: string
@@ -38,25 +39,19 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
                         <div className="relative group">
-                            <img
+                            <Image
                                 src={card.imageUrl}
                                 alt={card.title}
+                                loading="lazy"
+                                width={0}
+                                height={0}
                                 className="w-full h-auto object-cover transition-all duration-500 grayscale group-hover:grayscale-0"
                             />
 
-                            {/* Dark overlay that reduces on hover */}
                             <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:bg-black/20" />
 
-                            {/* Content overlay */}
                             <div className="absolute inset-0 flex flex-col justify-end p-6 text-white overflow-hidden">
-                                {/* Animated title */}
-                                {/* <motion.h2
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileHover={{ y: 0, opacity: 1 }}
-                                    className="text-2xl font-bold mb-2"
-                                >
-                                    {card.title}
-                                </motion.h2> */}
+                             
 
                                 <motion.div
                                     initial={{ y: 30, opacity: 0 }}
