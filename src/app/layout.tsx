@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 import Navbar from "@/components/nav";
 import Footer from "@/components/footer";
-import MobileNav from "@/components/MobileNav";
 
 const geistSans = localFont({
   src: "../../public/fonts/GeistVF.woff",
@@ -37,16 +36,11 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <MantineProvider >
-          <ThemeProvider
-            attribute="class"
-            disableTransitionOnChange
-          >
-            <Navbar />
-            <div className="content-container overflow-hidden">
-              {children}
-              <Footer />
-            </div>
-          </ThemeProvider>
+          <Navbar />
+          <div className="content-container overflow-hidden">
+            {children}
+            <Footer />
+          </div>
         </MantineProvider>
       </body>
     </html>

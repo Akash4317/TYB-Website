@@ -8,7 +8,6 @@ import Hero from "@/components/hero/Hero";
 import Subhero from "@/components/hero/Subhero";
 import Certificate from "@/components/images-scroll/Certificate";
 import Media from "@/components/images-scroll/Media";
-import MobileNav from "@/components/MobileNav";
 import Product from "@/components/product/Product";
 import Progress from "@/components/progress/Progress";
 import Divider from "@/components/ui/divider";
