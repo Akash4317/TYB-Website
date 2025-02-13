@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import React from 'react';
 import Image from 'next/image';
 
-import { fetchPodcasts } from "@/lib/db";
+import { fetchContent } from "@/lib/db";
 import BgLineImage from "@/images/bgLine.svg";
+import { contentTypeEnum } from "@/constants/constant";
 
 export const generateMetadata = (): Metadata => {
 	return {
@@ -37,7 +38,7 @@ const PodcastDiv = ({ podcast, type = 'primary' }: { podcast: Podcast, type?: 'p
 const PodcastPage = async () => {
 	let podcasts: Podcast[] = [];
 	try {
-		const res = await fetchPodcasts();
+		const res = await fetchContent(contentTypeEnum.PODCAST);
 		podcasts = res;
 	} catch (error) {
 		console.error('Failed to fetch podcasts:', error);

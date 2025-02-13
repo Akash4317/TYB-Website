@@ -3,9 +3,10 @@ import React from 'react';
 import Link from "next/link";
 import Image from 'next/image';
 
-import { fetchBlogs } from "@/lib/db";
+import { fetchContent } from "@/lib/db";
 import BgLineImage from "@/images/bgLine.svg";
 import { Button } from "@/components/ui/button";
+import { contentTypeEnum } from "@/constants/constant";
 
 export const generateMetadata = (): Metadata => {
 	return {
@@ -56,7 +57,7 @@ const BlogDiv = ({ blog, type = 'primary' }: { blog: Blog, type?: 'primary' | 's
 const BlogPage = async () => {
 	let blogs: Blog[] = [];
 	try {
-		const res = await fetchBlogs();
+		const res = await fetchContent(contentTypeEnum.BLOG);
 		blogs = res;
 	} catch (error) {
 		console.error('Failed to fetch blogs:', error);

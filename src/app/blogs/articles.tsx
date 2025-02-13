@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import React from 'react';
 import Image from 'next/image';
 
-import { fetchNews } from "@/lib/db";
+import { fetchContent } from "@/lib/db";
 import BgLineImage from "@/images/bgLine.svg";
 import { Button } from "@/components/ui/button";
+import { contentTypeEnum } from "@/constants/constant";
 
 export const generateMetadata = (): Metadata => {
 	return {
@@ -40,7 +41,7 @@ const ArticleDiv = ({ article }: { article: Article }) => {
 const ArticlePage = async () => {
 	let articles: Article[] = [];
 	try {
-		const res = await fetchNews();
+		const res = await fetchContent(contentTypeEnum.NEWS);
 		articles = res;
 	} catch (error) {
 		console.error('Failed to fetch articles:', error);

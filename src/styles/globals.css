@@ -24,7 +24,7 @@ body {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color:#fdf3f0;
+  background-color: #fdf3f0;
 }
 
 
@@ -117,6 +117,18 @@ body {
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg font-bold;
   }
 }
 
@@ -218,7 +230,7 @@ body {
 /* marquee animation */
 
 @keyframes scroll {
-0% {
+  0% {
     transform: translateX(-50%);
   }
 

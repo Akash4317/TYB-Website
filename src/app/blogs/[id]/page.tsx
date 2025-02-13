@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { fetchSingleBlog } from '@/lib/db';
+import { fetchSingleContent } from '@/lib/db';
 
 import TipTap from '@/components/TipTap';
 
@@ -12,7 +12,7 @@ export const generateMetadata = (): Metadata => {
 	};
 };
 async function fetchBlog({ id }: { id: string }) {
-	const res = await fetchSingleBlog({ id });
+	const res = await fetchSingleContent({ id });
 	if (!res || res.length === 0) {
 		throw notFound();
 	}

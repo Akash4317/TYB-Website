@@ -1,11 +1,17 @@
 export const links = [
-    { href: '/', label: 'Home' },
-    { href: '/about-us', label: 'About Us' },
-    { href: '/blogs', label: 'Blogs' },
-    { href: '/contact-us', label: 'Contact Us' },
+  { href: '/', label: 'Home' },
+  { href: '/about-us', label: 'About Us' },
+  { href: '/blogs', label: 'Blogs' },
+  { href: '/contact-us', label: 'Contact Us' },
 ];
-  
-export const  ProgressCardsInfo = [
+
+export enum contentTypeEnum {
+  BLOG = 'blog',
+  NEWS = 'news',
+  PODCAST = 'podcast'
+}
+
+export const ProgressCardsInfo = [
   {
     title: "Traceability",
     description:
@@ -56,11 +62,10 @@ export const  ProgressCardsInfo = [
   }
 ];
 
-
 export const testimonials = [
   {
     title: 'As seen on SharkTank',
-    image:'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
+    image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
     videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
     highlights: [
       'Seamless Digital Platform',
@@ -70,7 +75,7 @@ export const testimonials = [
   },
   {
     title: 'As seen on SharkTank',
-    image:'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
+    image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
     videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
     highlights: [
       'Seamless Digital Platform',
@@ -80,7 +85,7 @@ export const testimonials = [
   },
   {
     title: 'As seen on SharkTank',
-    image:'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
+    image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
     videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
     highlights: [
       'Seamless Digital Platform',
@@ -109,7 +114,6 @@ export const testimonials = [
     ],
   },
 ];
-
 
 export const sliderCardData = [
   {
@@ -147,7 +151,6 @@ export const sliderCardData = [
   }
 
 ];
-
 
 export const faqs = [
   {
