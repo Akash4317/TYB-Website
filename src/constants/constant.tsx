@@ -1,8 +1,8 @@
 export const links = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
+    { href: '/about-us', label: 'About Us' },
     { href: '/blogs', label: 'Blogs' },
-    { href: '/contact-us', label: 'Contact' },
+    { href: '/contact-us', label: 'Contact Us' },
 ];
   
 export const  ProgressCardsInfo = [

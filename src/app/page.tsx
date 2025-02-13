@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import Bandhu from "@/components/bandhu/Bandhu";
 import FaqSection from "@/components/FAQ/FaqSection";
 import Glory from "@/components/Glory/Glory";
@@ -11,12 +13,14 @@ import Product from "@/components/product/Product";
 import Progress from "@/components/progress/Progress";
 import Divider from "@/components/ui/divider";
 
+export const metadata: Metadata = {
+  title: "The Yarn Bazaar",
+  description: "The Yarn Bazaar is a modern, efficient, and transparently managed marketplace for yarn buyers and sellers to discover real-time yarn prices, information, and market trends.",
+};
+
 export default function Home() {
   return (
     <>
-      <div className="block md:hidden mb-[100px]">
-        <MobileNav />
-      </div>
       <Hero />
       <Certificate />
       <Subhero />

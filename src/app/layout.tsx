@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 import Navbar from "@/components/nav";
 import Footer from "@/components/footer";
+import MobileNav from "@/components/MobileNav";
 
 const geistSans = localFont({
   src: "../../public/fonts/GeistVF.woff",
