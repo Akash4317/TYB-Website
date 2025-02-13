@@ -38,7 +38,7 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                        <div className="relative group">
+                        <div className="relative">
                             <Image
                                 src={card.imageUrl}
                                 alt={card.title}
@@ -50,18 +50,13 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
 
                             <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:bg-black/20" />
 
-                            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white overflow-hidden">
+                            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white overflow-hidden group-hover:">
                              
 
-                                <motion.div
-                                    initial={{ y: 30, opacity: 0 }}
-                                    whileHover={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.1 }}
-                                    className="text-md"
-                                >
+                                
                                     <h2 className="text-3xl font-bold mb-4">{card.title}</h2>
                                     <p>{card.description}</p>
-                                </motion.div>
+                                
                             </div>
                         </div>
                     </motion.div>
