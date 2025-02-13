@@ -52,19 +52,19 @@ const Bandhu = () => {
                           </div>
                       </div>
                       <div className="w-full md:w-1/2 flex justify-center md:justify-end relative mt-10 md:mt-0">
-                          <div className="absolute w-[300px] h-[300px] md:w-[350px] md:h-[350px] -top-10 right-4">
+                          <div className={`absolute w-[400px] h-[300px] md:w-[350px] md:h-[350px] -top-10 md:right-4`}>
                               <Image
                                   src={ellipse}
                                   alt="Background Circle 1"
                                   width={400}
-                                  height={400}
-                                  className="absolute w-full h-full top-4 -left-[110px] opacity-90"
+                                  height={300}
+                                  className="absolute top-4 -left-[110px] opacity-90"
                               />
                               <Image
                                   src={ellipse2}
                                   alt="Background Circle 2"
-                                  width={350}
-                                  height={350}
+                                  width={400}
+                                  height={300}
                                   className="absolute top-4 left-10 opacity-80"
                               />
                           </div>
@@ -87,20 +87,20 @@ const Bandhu = () => {
                   transition={{ duration: 0.5 }}
               >
                   <div className='flex flex-col-reverse md:flex-row items-center justify-between w-full px-6 md:px-12 py-10 relative mt-12 md:gap-12'>
-                      <div className='w-full md:w-[45%] flex justify-center md:justify-end relative mt-10 md:mt-0'>
-                          <div className="absolute w-[300px] h-[300px] md:w-[350px] md:h-[350px] -top-10 right-4">
+                      <div className='w-full md:w-[45%] flex justify-center md:justify-start relative mt-10 md:mt-0'>
+                          <div className={`absolute w-[400px] h-[300px] md:w-[350px] md:h-[350px] -top-12 md:-top-10 right-[80px] md:left-[80px]`}>
                               <Image
                                   src={ellipse}
                                   alt="Background Circle 1"
                                   width={400}
-                                  height={400}
-                                  className="absolute w-full h-full top-4 -left-[110px] opacity-90"
+                                  height={300}
+                                  className="absolute top-4 -left-[110px] opacity-90"
                               />
                               <Image
                                   src={ellipse2}
                                   alt="Background Circle 2"
-                                  width={350}
-                                  height={350}
+                                  width={400}
+                                  height={300}
                                   className="absolute top-4 left-10 opacity-80"
                               />
                           </div>
@@ -167,19 +167,19 @@ const Bandhu = () => {
                           </div>
                       </div>
                       <div className="w-full md:w-1/2 flex justify-center md:justify-end relative mt-10 md:mt-0">
-                          <div className="absolute w-[300px] h-[300px] md:w-[350px] md:h-[350px] -top-10 right-4">
+                          <div className={`absolute w-[400px] h-[300px] md:w-[350px] md:h-[350px] -top-10 md:right-4`}>
                               <Image
                                   src={ellipse}
                                   alt="Background Circle 1"
                                   width={400}
-                                  height={400}
-                                  className="absolute w-full h-full top-4 -left-[110px] opacity-90"
+                                  height={300}
+                                  className="absolute top-4 -left-[110px] opacity-90"
                               />
                               <Image
                                   src={ellipse2}
                                   alt="Background Circle 2"
-                                  width={350}
-                                  height={350}
+                                  width={400}
+                                  height={300}
                                   className="absolute top-4 left-10 opacity-80"
                               />
                           </div>
