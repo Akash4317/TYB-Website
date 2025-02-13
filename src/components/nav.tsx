@@ -2,17 +2,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-// import { ModeToggle } from './ui/toggle-theme';
 import TYBIconImage from "@/images/TybIcon.png";
-
 import { links } from '@/constants/constant';
 import { usePathname } from 'next/navigation';
 
 const Navbar: React.FC = () => {
-	const router = usePathname();;
+	const router = usePathname();
 	const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
-	const [underlineLeft, setUnderlineLeft] = useState(-30);
-	const [underlineWidth, setUnderlineWidth] = useState(110);
+	const [underlineLeft, setUnderlineLeft] = useState(30);
+	const [underlineWidth, setUnderlineWidth] = useState(60);
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
@@ -23,10 +21,17 @@ const Navbar: React.FC = () => {
 		const activeLink = linkRefs.current[activeIndex];
 		if (!activeLink) return;
 
-		setUnderlineLeft(activeLink.offsetLeft - 30 );
-		setUnderlineWidth(activeLink.offsetWidth-110);
-	}, [router]);
+		const aElement = activeLink.querySelector('a');
+		if (!aElement) return;
 
+		// Get accurate text dimensions
+		const textWidth = aElement.offsetWidth;
+		const linkPosition = activeLink.offsetLeft;
+		const centeredPosition = linkPosition + (activeLink.offsetWidth - textWidth) / 2;
+
+		setUnderlineLeft(centeredPosition-30);
+		setUnderlineWidth(textWidth+60);
+	}, [router]);
 
 	return (
 		<nav className="border-b hidden md:block px-10 py-5">
@@ -59,9 +64,6 @@ const Navbar: React.FC = () => {
 							</Link>
 						</li>
 					))}
-					{/* <li>
-						<ModeToggle />
-					</li> */}
 					<svg
 						className="absolute -bottom-2 transition-all duration-300 h-[20px]"
 						style={{
