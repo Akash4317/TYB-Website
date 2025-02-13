@@ -33,7 +33,7 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
                 {cards.map((card, index) => (
                     <motion.div
                         key={index}
-                        className="mb-4 overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl group"
+                        className="mb-4 overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl group relative"
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -48,15 +48,30 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
                                 className="w-full h-auto object-cover transition-all duration-500 grayscale group-hover:grayscale-0"
                             />
 
-                            <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:bg-black/20" />
+                            <motion.div
+                                className="absolute inset-0 bg-black/40"
+                                initial={{ y: "100%" }}
+                                whileHover={{ y: "0%" }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                            />
 
-                            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white overflow-hidden group-hover:">
-                             
+                            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white overflow-hidden">
+                                <motion.div
+                                    initial={{ y: 100 }}
+                                    whileHover={{ y: 0 }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                >
+                                    <h2 className="text-3xl font-bold text-center mb-4">{card.title}</h2>
 
-                                
-                                    <h2 className="text-3xl font-bold mb-4">{card.title}</h2>
-                                    <p>{card.description}</p>
-                                
+                                    <motion.p
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileHover={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeOut" }}
+                                        className="text-md text-center  font-bold"
+                                    >
+                                        {card.description}
+                                    </motion.p>
+                                </motion.div>
                             </div>
                         </div>
                     </motion.div>

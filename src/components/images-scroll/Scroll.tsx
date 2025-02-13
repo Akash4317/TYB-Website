@@ -12,22 +12,22 @@ const Scroll: React.FC<ScrollProps> = ({ images }) => {
                 <div className="logos-slide flex flex-none whitespace-nowrap animate-scroll">
                     {images.map((src, idx) => (
                         <div key={idx} className="mx-4">
-                            <Image src={src} alt="brand logo" className="h-[100px] w-auto" />
+                            <Image src={src} alt="brand logo" className="h-[150px] w-auto object-contain" />
                         </div>
                     ))}
                     {images.map((src, idx) => (
                         <div key={`duplicate-${idx}`} className="mx-4">
-                            <Image src={src} alt="brand logo" className="h-[100px] w-auto" />
+                            <Image src={src} alt="brand logo" className="h-[150px] w-auto object-contain" />
                         </div>
                     ))}
                     {images.map((src, idx) => (
                         <div key={`duplicate2-${idx}`} className="mx-4">
-                            <Image src={src} alt="brand logo" className="h-[100px] w-auto" />
+                            <Image src={src} alt="brand logo" className="h-[150px] w-auto object-contain" />
                         </div>
                     ))}
                     {images.map((src, idx) => (
                         <div key={`duplicate3-${idx}`} className="mx-4">
-                            <Image src={src} alt="brand logo" className="h-[100px] w-auto" />
+                            <Image src={src} alt="brand logo" className="h-[150px] w-auto object-contain" />
                         </div>
                     ))}
                 </div>

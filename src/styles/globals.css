@@ -124,7 +124,7 @@ body {
 
 .product-slider {
   --cards: 3;
-  --cardHeight: 100vh;
+  --cardHeight: auto;
   --cardTopPadding: 1.5rem;
   --cardMargin: 4rem;
 }

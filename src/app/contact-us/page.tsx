@@ -25,7 +25,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const response = await fetch('https://udti2bmsl7.execute-api.ap-south-1.amazonaws.com/staging/', {
+      const response = await fetch('/api/contact-us', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,16 +74,16 @@ const Contact = () => {
 
       <div className="flex justify-center items-center w-full max-w-[1024px] md:mt-[120px] mt-0 bg-[#F8D53C] p-4 space-x-4 rounded-lg">
         <div className="flex flex-col md:flex-row rounded-xl w-full">
-          <div className="bg-[#fff2ea] p-6 py-10 w-full md:w-1/3 rounded-xl">
+          <div className="bg-[#fff2ea] p-8 py-10 w-full md:w-1/3 rounded-xl">
             <h2 className="text-2xl text-center font-semibold text-[#A33B35] mb-8">Contact Us</h2>
             <div className="space-y-6 text-[#6a1b0d]">
               <div className="flex items-center gap-3">
                 <Image src={phoneIcon} alt="phoneIcon" width={24} height={24} loading='lazy' />
-                <span>00000000000</span>
+                <span>+91 888 49 45 644</span>
               </div>
               <div className="flex items-center gap-3">
                 <Image src={mailIcon} alt="mailIcon" width={24} height={24} loading='lazy' />
-                <span>demo@gmail.com</span>
+                <span>enquiry@theyarnbazaar.com</span>
               </div>
               <div className="flex items-start gap-3">
                 <Image src={MapPin} alt="mapPin" width={24} height={24} />
@@ -153,7 +153,6 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
-                  required
                   className="peer w-full border-0 border-b-2 border-[#A33B35] bg-transparent text-[#A33B35] placeholder-transparent pt-6 focus:outline-none focus:ring-0"
                   placeholder="Email"
                   value={formData.email}
