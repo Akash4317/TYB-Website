@@ -32,7 +32,7 @@ const tabs: TabData[] = [
 
 const MediaPage = async () => {
   return (
-    <div className='min-h-[600px] max-w-full flex flex-col space-y-6 pt-6 relative'>
+    <div className='min-h-[600px] max-w-full flex flex-col space-y-6 pt-12 md:pt-6 relative'>
       <Tab tabs={tabs} />
     </div>
   );
