@@ -36,11 +36,17 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <MantineProvider >
-          <Navbar />
-          <div className="content-container overflow-hidden">
-            {children}
-            <Footer />
-          </div>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <div className="content-container overflow-hidden">
+              {children}
+              <Footer />
+            </div>
+          </ThemeProvider>
         </MantineProvider>
       </body>
     </html>
