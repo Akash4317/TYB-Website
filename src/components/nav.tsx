@@ -11,7 +11,7 @@ import { AlignLeft, X } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 const Navbar: React.FC = () => {
-	const router = usePathname();
+	const router = usePathname();;
 	const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
 	const [underlineLeft, setUnderlineLeft] = useState(-30);
 	const [underlineWidth, setUnderlineWidth] = useState(110);
@@ -30,14 +30,6 @@ const Navbar: React.FC = () => {
 		setUnderlineWidth(activeLink.offsetWidth - 110);
 	}, [router]);
 
-		// Get accurate text dimensions
-		const textWidth = aElement.offsetWidth;
-		const linkPosition = activeLink.offsetLeft;
-		const centeredPosition = linkPosition + (activeLink.offsetWidth - textWidth) / 2;
-
-		setUnderlineLeft(centeredPosition-30);
-		setUnderlineWidth(textWidth+60);
-	}, [router]);
 
 	return (
 		<>
