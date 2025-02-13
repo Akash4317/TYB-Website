@@ -2,9 +2,10 @@
 import type { Metadata } from "next";
 import React from 'react';
 
-import "@/styles/globals.css";
 import Tab, { TabData } from "./tab";
 import BlogPage from "./blogs";
+import PodcastPage from "./podcasts";
+import ArticlePage from "./articles";
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -20,11 +21,11 @@ const tabs: TabData[] = [
   },
   {
     title: "Podcasts",
-    content: <h1>Podcasts</h1>
+    content: <PodcastPage />
   },
   {
     title: "Articles",
-    content: <h1>Articles</h1>
+    content: <ArticlePage />
   },
 ]
 
