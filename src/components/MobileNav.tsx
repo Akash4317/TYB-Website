@@ -81,20 +81,6 @@ const MobileNav = () => {
                                                         Home
                                                     </Link>
                                                     <Link
-                                                        href="/pricing"
-                                                        onClick={() => setIsOpen(false)}
-                                                        className="text-lg hover:text-gray-700"
-                                                    >
-                                                        Pricing
-                                                    </Link>
-                                                    <Link
-                                                        href="/book-demo"
-                                                        onClick={() => setIsOpen(false)}
-                                                        className="text-lg hover:text-gray-700"
-                                                    >
-                                                        Demo
-                                                    </Link>
-                                                    <Link
                                                         href="/about-us"
                                                         onClick={() => setIsOpen(false)}
                                                         className="text-lg hover:text-gray-700"
