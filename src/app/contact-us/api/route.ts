@@ -13,6 +13,7 @@ export async function POST(req: Request) {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
+            'x-api-key': 'bkVcVHsJF36YEQs2o7xOf5Xi4LOY6HX3Axphmrvj'
             },
             body: JSON.stringify(req.body),
         });
