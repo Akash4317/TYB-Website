@@ -66,27 +66,7 @@ export const testimonials = [
   {
     title: 'As seen on SharkTank',
     image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
-    videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
-    highlights: [
-      'Seamless Digital Platform',
-      'Innovation meets efficiency',
-      'Lorem ipsumgive 4 text atleast',
-    ],
-  },
-  {
-    title: 'As seen on SharkTank',
-    image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
-    videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
-    highlights: [
-      'Seamless Digital Platform',
-      'Innovation meets efficiency',
-      'Lorem ipsumgive 4 text atleast',
-    ],
-  },
-  {
-    title: 'As seen on SharkTank',
-    image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
-    videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
+    // videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
     highlights: [
       'Seamless Digital Platform',
       'Innovation meets efficiency',
@@ -106,7 +86,27 @@ export const testimonials = [
   {
     title: 'As seen on SharkTank',
     image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
-    videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
+    // videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
+    highlights: [
+      'Seamless Digital Platform',
+      'Innovation meets efficiency',
+      'Lorem ipsumgive 4 text atleast',
+    ],
+  },
+  {
+    title: 'As seen on SharkTank',
+    image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
+    // videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
+    highlights: [
+      'Seamless Digital Platform',
+      'Innovation meets efficiency',
+      'Lorem ipsumgive 4 text atleast',
+    ],
+  },
+  {
+    title: 'As seen on SharkTank',
+    image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/sharkTankc1.png',
+    // videoUrl: 'https://www.youtube.com/watch?v=Yi7xfOPMVdE',
     highlights: [
       'Seamless Digital Platform',
       'Innovation meets efficiency',

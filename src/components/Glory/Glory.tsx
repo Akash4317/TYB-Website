@@ -19,7 +19,7 @@ const Glory = () => {
                         >
                             <div className="bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row gap-12 w-full ">
                                 <div className="w-full md:w-1/2 rounded-xl overflow-hidden p-4 bg-yellow-400">
-                                    {testimonial.videoUrl ? (
+                                    {/* {testimonial.videoUrl ? (
                                         <iframe
                                             className="w-full h-56 md:h-full"
                                             src={testimonial.videoUrl}
@@ -28,9 +28,9 @@ const Glory = () => {
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen
                                         ></iframe>
-                                    ) : (
+                                    ) : ( */}
                                         <Image className='w-full h-auto' src={testimonial.image} width={400} height={300} alt='carousel' />
-                                    )}
+                                    {/* )} */}
                                 </div>
                                 <div className="w-full md:w-1/2 flex flex-col justify-center">
                                     <p className="text-[#B02430] font-poppins text-[28px] font-semibold leading-[130%]">{testimonial.title}</p>
