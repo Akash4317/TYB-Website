@@ -48,11 +48,11 @@ const Hero = () => {
             Empowering <br className="hidden md:block" /> The Yarn Industry
           </p>
 
-          <div className="flex items-end">
+          <div className="flex items-end pt-5">
             <p className="text-[#A3A2A2] p-2 text-center font-inter text-[24px] md:text-[30px] font-extrabold leading-[130%]">
               with
             </p>
-            <span className="relative block h-[40px] md:h-[51px] w-[280px] mb-5 md:mb-[50px] md:w-[535px]">
+            <span className="relative block h-[40px] md:h-[51px] w-[280px]   md:w-[535px]">
               {texts.map((text, i) => (
                 <motion.h1
                   key={text}
@@ -67,7 +67,7 @@ const Hero = () => {
             </span>
           </div>
 
-          <p className="text-[#111] text-sm md:text-lg py-2 md:py-4 px-2 font-semibold max-w-[580px] mx-auto md:mx-0">
+          <p className="text-[#111] text-sm md:text-lg py-2 md:py-0 px-2 font-semibold max-w-[580px] mx-auto md:mx-0">
             Discover and Buy Top Quality Yarn at Unbeatable Prices
           </p>
         </div>
