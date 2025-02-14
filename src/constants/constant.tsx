@@ -1,8 +1,10 @@
-export const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about-us', label: 'About Us' },
-  { href: '/media', label: 'Media' },
-  { href: '/contact-us', label: 'Contact Us' },
+import { LinkInterface } from "./interface";
+
+export const links: LinkInterface[] = [
+  { url: '/', label: 'Home' },
+  { url: '/about-us', label: 'About Us' },
+  { url: '/media', label: 'Media' },
+  { url: '/contact-us', label: 'Contact Us' },
 ];
 
 export enum contentTypeEnum {
