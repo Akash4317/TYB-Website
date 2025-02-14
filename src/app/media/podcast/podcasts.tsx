@@ -8,6 +8,8 @@ import { contentTypeEnum } from "@/constants/constant";
 import { useContent } from "@/lib/api";
 import { PodcastInterface } from '@/constants/interface';
 import PodcastDiv from '@/components/media/podcastDiv';
+import YoutubeIcon from '@/icons/youtubeIcon.svg';
+import SpotifyIcon from '@/icons/spoitfyIcon.svg';
 
 const PodcastPage = () => {
 	const { data, isLoading, isError } = useContent(contentTypeEnum.PODCAST);
@@ -39,6 +41,16 @@ const PodcastPage = () => {
 						</div>
 					</div>
 				</div>
+			</div>
+			<div className='my-8 w-full px-2 md:px-8 flex flex-col gap-2 justify-center'>
+				<a href="https://www.youtube.com/@THEYARNBAZAAR" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
+					<Image src={YoutubeIcon} alt="Youtube Icon" className="w-6 h-6 inline-block" />
+					Check all our podcast in our youtube channel
+				</a>
+				<a href="https://open.spotify.com/show/7nrT5bUoBAtJwuLh9S4F40" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline flex items-center gap-2">
+					<Image src={SpotifyIcon} alt="Spotify Icon" className="w-6 h-6 inline-block" />
+					Check all our podcast in Spotify
+				</a>
 			</div>
 
 		</>

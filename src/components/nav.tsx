@@ -16,8 +16,8 @@ const Navbar: React.FC = () => {
 	const [underlineLeft, setUnderlineLeft] = useState(30);
 	const [underlineWidth, setUnderlineWidth] = useState(60);
 
-	
-	const activeIndex = links.findIndex(link => link.href === router);
+
+	const activeIndex = links.findIndex(link => link.url === router);
 
 	useEffect(() => {
 
@@ -36,42 +36,42 @@ const Navbar: React.FC = () => {
 		const linkPosition = activeLink.offsetLeft;
 		const centeredPosition = linkPosition + (activeLink.offsetWidth - textWidth) / 2;
 
-		setUnderlineLeft(centeredPosition-30);
-		setUnderlineWidth(textWidth+60);
+		setUnderlineLeft(centeredPosition - 30);
+		setUnderlineWidth(textWidth + 60);
 	}, [router, activeIndex]);
 
 	return (
 		<>
-		<nav className="border-b hidden md:block px-10 py-5">
-			<div className="mx-auto flex justify-between items-center">
-				<div className="flex items-center space-x-2">
-					<Image
-						src={TYBIconImage}
-						alt="TYB Logo"
-						width={250}
-						priority
-					/>
-				</div>
-				<ul className="flex gap-[35px] items-center relative">
-					{links.map((link, index) => (
-						<li
-							key={link.href}
-							ref={el => {
-								linkRefs.current[index] = el;
-							}}
-							className="flex flex-col justify-center items-center"
-						>
-							<Link
-								href={link.href}
-								className={`font-poppins text-[18px] leading-[28px] transition-colors duration-300 ${router === link.href
+			<nav className="border-b hidden md:block px-10 py-4 z-[999]">
+				<div className="mx-auto flex justify-between items-center">
+					<div className="flex items-center space-x-2">
+						<Image
+							src={TYBIconImage}
+							alt="TYB Logo"
+							height={40}
+							priority
+						/>
+					</div>
+					<ul className="flex gap-[35px] items-center relative">
+						{links.map((link, index) => (
+							<li
+								key={link.url}
+								ref={el => {
+									linkRefs.current[index] = el;
+								}}
+								className="flex flex-col justify-center items-center"
+							>
+								<Link
+									href={link.url}
+									className={`font-poppins text-[18px] leading-[28px] transition-colors duration-300 ${router === link.url
 										? 'text-[#A33B35] font-bold'
 										: 'text-[#323433] font-medium'
-									}`}
-							>
-								{link.label}
-							</Link>
-						</li>
-					))}
+										}`}
+								>
+									{link.label}
+								</Link>
+							</li>
+						))}
 						{activeIndex !== -1 && (
 							<svg
 								className="absolute -bottom-2 transition-all duration-300 h-[20px]"
@@ -91,10 +91,10 @@ const Navbar: React.FC = () => {
 								/>
 							</svg>
 						)}
-				</ul>
-			</div>
-		</nav>
-		<header className='md:hidden sm:block py-5'>
+					</ul>
+				</div>
+			</nav>
+			<header className='md:hidden sm:block py-5 z-[999]'>
 				<div className="nav-wrapper z-20 w-full mx-auto pt-0 mb-12  px-0 block fixed left-0 top-0 bottom-auto right-0">
 					<div
 						className="bg-white rounded-none mx-auto tracking-tight text-base leading-normal shadow-lg relative block"
@@ -149,6 +149,13 @@ const Navbar: React.FC = () => {
 															className="text-lg hover:text-gray-700"
 														>
 															About Us
+														</Link>
+														<Link
+															href="/media"
+															onClick={() => setIsOpen(false)}
+															className="text-lg hover:text-gray-700"
+														>
+															Media
 														</Link>
 														<Link
 															href="/contact-us"

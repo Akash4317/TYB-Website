@@ -32,3 +32,8 @@ export interface PodcastInterface {
   content: { key: string };
   title_image_url: string;
 };
+
+export interface LinkInterface {
+  label: string;
+  url: string;
+}

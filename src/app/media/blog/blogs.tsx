@@ -10,8 +10,10 @@ import BgLineImage from "@/images/bgLine.svg";
 import { Button } from "@/components/ui/button";
 import BlogDiv from "@/components/media/blogDiv";
 import { contentTypeEnum } from '@/constants/constant';
+import Divider from '@/components/ui/divider';
 
 const BlogPage = () => {
+	const [isOpen, setIsOpen] = React.useState(false);
 	const { data, isLoading, isError } = useContent(contentTypeEnum.BLOG);
 
 	if (isLoading) return <div>Loading...</div>;
@@ -51,19 +53,28 @@ const BlogPage = () => {
 						)}
 					</div>
 				</div>
-				<Button className='absolute -bottom-4 right-[40%] z-50 min-w-48 w-[20%] border' variant='outline'>
-					See More
+				<Button className='absolute -bottom-4 right-[40%] z-50 min-w-48 w-[20%] border' variant='outline' onClick={() => setIsOpen(!isOpen)}>
+					{isOpen ? 'Hide Older Blogs' : 'See Older Blogs'}
 				</Button>
 			</div>
-			<div className='relative overflow-hidden'>
-				<div className="flex justify-evenly flex-wrap gap-8 h-full p-8 z-10">
-					{
-						data.map((blog: Blog) => (
-							<BlogDiv key={blog.id} blog={blog} type="secondary" />
-						))
-					}
-				</div>
-			</div>
+			<Divider className='my-8' />
+			{
+				isOpen && (
+					<>
+						<div className='relative overflow-hidden'>
+							<div className="flex justify-evenly flex-wrap gap-8 h-full p-8 z-10">
+								{
+									data.map((blog: Blog) => (
+										<BlogDiv key={blog.id} blog={blog} type="secondary" />
+									))
+								}
+							</div>
+
+						</div>
+						<Divider className='my-8' />
+					</>
+				)
+			}
 		</>
 	);
 };
