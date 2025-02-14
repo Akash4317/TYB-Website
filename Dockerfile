@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 
 # Set environment variables to ensure non-interactive installation
 ENV DEBIAN_FRONTEND=noninteractive
+ENV LAMBDA_ENDPOINT = https://ukixtbv4w4.execute-api.ap-south-1.amazonaws.com/deploy/website
 
 # Update and install required tools
 RUN apt-get update && apt-get install -y \
