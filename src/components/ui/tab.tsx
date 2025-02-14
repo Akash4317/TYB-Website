@@ -1,12 +1,7 @@
 'use client';
 
-import { JSX } from "react";
 import { useState } from 'react';
-
-export interface TabData {
-  title: string;
-  content: JSX.Element
-}
+import { TabData } from "@/constants/interface";
 
 interface TabProps {
   tabs: TabData[];

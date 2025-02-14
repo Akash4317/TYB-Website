@@ -26,7 +26,7 @@ export const fetchContent = async (type: contentTypeEnum) => {
     throw err;
   }
 };
-export const fetchSingleContent = async ({ id }: { id: string }) => {
+export const fetchSingleContent = async (id: string) => {
   try {
     if (!process.env.LAMBDA_ENDPOINT) {
       throw new Error('LAMBDA_ENDPOINT is not defined');
@@ -49,15 +49,6 @@ export const fetchSingleContent = async ({ id }: { id: string }) => {
     const data = await response.json();
     return data;
   } catch (err) {
-    throw err;
-  }
-}
-export const uploadContent = async ({ content }: { content: any }) => {
-  try {
-    const data = JSON.stringify(content.content);
-    
-  }
-  catch (err) {
     throw err;
   }
 }

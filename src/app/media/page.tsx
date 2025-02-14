@@ -2,10 +2,11 @@
 import type { Metadata } from "next";
 import React from 'react';
 
-import Tab, { TabData } from "./tab";
-import BlogPage from "./blogs";
-import PodcastPage from "./podcasts";
-import ArticlePage from "./articles";
+import Tab from "../../components/ui/tab";
+import BlogPage from "./blog/blogs";
+import PodcastPage from "./podcast/podcasts";
+import ArticlePage from "./news/articles";
+import { TabData } from "@/constants/interface";
 
 export const generateMetadata = (): Metadata => {
   return {
