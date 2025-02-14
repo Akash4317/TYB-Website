@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: 'contact TYB',
+    title: 'Contact Us - The Yarn Bazaar',
     description: '',
     keywords: '',
 }
