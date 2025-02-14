@@ -9,6 +9,7 @@ export const fetchContent = async (type: contentTypeEnum) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'x-api-key': process.env.LAMBDA_API_KEY || '',
       },
       body: JSON.stringify({
         operation: 'fetchContent',
@@ -35,6 +36,7 @@ export const fetchSingleContent = async (id: string) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'x-api-key': process.env.LAMBDA_API_KEY || '',
       },
       body: JSON.stringify({
         operation: 'fetchSingleContent',
