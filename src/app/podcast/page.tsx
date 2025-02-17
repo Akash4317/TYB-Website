@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Metadata } from 'next';
 
 import { fetchContent } from '@/lambda/db';
 import { contentTypeEnum } from "@/constants/constant";
@@ -9,6 +10,12 @@ import YoutubeIcon from '@/icons/youtubeIcon.svg';
 import SpotifyIcon from '@/icons/spoitfyIcon.svg';
 import PodcastDiv from '@/components/media/podcastDiv';
 
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Media - The Yarn Bazaar",
+    description: "Explore the latest media from The Yarn Bazaar.",
+  };
+};
 
 const PodcastPage = async () => {
 	const podcasts = await fetchContent(contentTypeEnum.PODCAST);
