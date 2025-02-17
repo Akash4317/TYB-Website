@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-import { fetchContent } from '@/lambda/db';
 import { contentTypeEnum } from "@/constants/constant";
 import { PodcastInterface } from '@/constants/interface';
 
@@ -11,13 +10,42 @@ import SpotifyIcon from '@/icons/spoitfyIcon.svg';
 import PodcastDiv from '@/components/media/podcastDiv';
 
 export const generateMetadata = (): Metadata => {
-  return {
-    title: "Media - The Yarn Bazaar",
-    description: "Explore the latest media from The Yarn Bazaar.",
-  };
+	return {
+		title: "Media - The Yarn Bazaar",
+		description: "Explore the latest media from The Yarn Bazaar.",
+	};
 };
 
-const PodcastPage = async () => {
+export const fetchContent = async (type: contentTypeEnum) => {
+	try {
+		if (!process.env.LAMBDA_ENDPOINT) {
+			throw new Error('LAMBDA_ENDPOINT is not defined');
+		}
+		const response = await fetch(process.env.LAMBDA_ENDPOINT, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'x-api-key': process.env.LAMBDA_API_KEY || '',
+			},
+			body: JSON.stringify({
+				operation: 'fetchContent',
+				type: type,
+			}),
+			cache: 'no-store',
+		});
+
+		if (!response.ok) {
+			throw new Error('Network response was not ok');
+		}
+
+		const data = await response.json();
+		return data;
+	} catch (err) {
+		throw err;
+	}
+};
+
+export default async function PodcastPage() {
 	const podcasts = await fetchContent(contentTypeEnum.PODCAST);
 
 	return (
@@ -28,11 +56,9 @@ const PodcastPage = async () => {
 					<Image src={BgLineImage} alt="Background Line" className="absolute -top-10 filter brightness-50 w-full rotate-2" />
 					<div className='relative overflow-hidden'>
 						<div className="flex justify-evenly flex-wrap gap-8 h-full p-8 z-10">
-							{
-								podcasts && podcasts.map((podcast: PodcastInterface) => (
-									<PodcastDiv key={podcast.id} podcast={podcast} type="secondary" />
-								))
-							}
+							{podcasts && podcasts.map((podcast: PodcastInterface) => (
+								<PodcastDiv key={podcast.id} podcast={podcast} type="secondary" />
+							))}
 						</div>
 					</div>
 				</div>
@@ -49,6 +75,4 @@ const PodcastPage = async () => {
 			</div>
 		</>
 	);
-};
-
-export default PodcastPage;
+}
