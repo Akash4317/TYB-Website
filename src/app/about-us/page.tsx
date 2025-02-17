@@ -13,6 +13,7 @@ import TeamWorkImage from "@/images/about-us/teamwork.svg";
 import JourneyImage from "@/images/about-us/journeyLine.svg";
 import ForegroundImage from "@/images/about-us/foreground.svg";
 import ManufacturingImage from "@/images/about-us/manufacturing.svg";
+import MasonryCards from '@/components/ui/MasonryCards';
 
 export const generateMetadata = (): Metadata => {
 	return {
@@ -20,17 +21,17 @@ export const generateMetadata = (): Metadata => {
 		description: "What we do at The Yarn Bazaar.",
 	};
 };
-interface WhyChoseUs {
-	label: string;
-	description?: string;
-}
-const whyChoseUs: WhyChoseUs[] = [
-	{ label: "Secure Transactions", description: "Safe and transparent payments with our trusted escrow service." },
-	{ label: "Sustainability Commitment", description: "Eco-friendly sourcing to reduce environmental impact." },
-	{ label: "Innovative Solutions", description: "Constantly evolving features for a smarter experience." },
-	{ label: "User-Friendly Platform", description: "Simplified tools for seamless procurement and operations." },
-	{ label: "Quality Assurance", description: "Only the best, thoroughly vetted suppliers for premium yarn." },
-	{ label: "24/7 Support", description: "Dedicated assistance anytime you need it." }
+
+const whyChoseUs = [
+	{ title: "Secure Transactions", description: "Safe and transparent payments with our trusted escrow service.", imageUrl: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/image+165.jpg', isSmall: true, },
+	{ title: "Sustainability Commitment", description: "Eco-friendly sourcing to reduce environmental impact.", imageUrl:"https://tyb-website-next.s3.ap-south-1.amazonaws.com/image+167.jpg" ,isSmall: true,},
+	{ title: "Innovative Solutions", description: "Constantly evolving features for a smarter experience.", imageUrl: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/image+170.jpg", isSmall: true, },
+	{ title: "User-Friendly Platform", description: "Simplified tools for seamless procurement and operations.", imageUrl: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/image+168.jpg", isSmall: true, },
+	{ title: "Quality Assurance", description: "Only the best, thoroughly vetted suppliers for premium yarn.", imageUrl: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/image+166.jpg", isSmall: true, },
+	{ title: "24/7 Support", description: "Dedicated assistance anytime you need it.", imageUrl: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/image+169.jpg", isSmall: true, },
+	{ title: "Secure Transactions", description: "Safe and transparent payments with our trusted escrow service.", imageUrl: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/image+165.jpg', isSmall: true, },
+	{ title: "Sustainability Commitment", description: "Eco-friendly sourcing to reduce environmental impact.", imageUrl: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/image+167.jpg",isSmall: true, },
+	
 ]
 interface OurGrowthPartners {
 	name: string;
@@ -38,12 +39,11 @@ interface OurGrowthPartners {
 	image: string;
 }
 const ourGrowthPartners: OurGrowthPartners[] = [
-	{ name: "Sequoia Capital", brand: "Sequoia", image: UserImage },
-	{ name: "Accel Partners", brand: "Accel", image: UserImage },
-	{ name: "Tiger Global Management", brand: "Tiger Global", image: UserImage },
-	{ name: "SoftBank Vision Fund", brand: "SoftBank", image: UserImage },
-	{ name: "Lightspeed Venture Partners", brand: "Lightspeed", image: UserImage },
-	{ name: "Matrix Partners", brand: "Matrix", image: UserImage }
+	{ name: "Ashneer Grover", brand: "Third Unicorn", image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/Ashneer.jpg" },
+	{ name: "Aman Gupta" , brand: "Shaadi", image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/Aman.jpg" },
+	{ name: "Anuppam Mittal", brand: "boAt", image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/boat.jpg" },
+	{ name: "Ekta Kapoor", brand: "Balaji Telefilms Ltd", image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/ekansha.png" },
+	{ name: "Peyush Goyal", brand: "lenskart", image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/peyush.jpg" },
 ]
 interface OurStrengths {
 	name: string;
@@ -182,19 +182,11 @@ const WhatDrivesUs = () => {
 }
 const WhyChooseUs = () => {
 	return (
-		<div className="flex flex-col gap-24">
+		<>
 			<h1 className="text-center text-4xl text-red-800">Why Choose Us</h1>
-			<div className="grid grid-cols-3 gap-6 justify-items-center">
-				{
-					whyChoseUs.map((item, index) => (
-						<div key={index} className="bg-[#F8D53C] flex flex-col gap-3 justify-center items-center text-center rounded-2xl h-[250px] w-[250px]">
-							<h2 className="text-2xl w-[80%]">{item.label}</h2>
-							<p className="text-sm w-[80%]">{item.description}</p>
-						</div>
-					))
-				}
-			</div>
-		</div>
+			<MasonryCards cards={whyChoseUs} />
+		</>
+		
 	)
 }
 const HassleFreeProcurement = () => {
@@ -300,51 +292,69 @@ const HassleFreeProcurement = () => {
 	)
 }
 const OurGrowthPartners = () => {
+	const duplicatedPartners = [...ourGrowthPartners, ...ourGrowthPartners]
 	return (
-		<div className="flex flex-col gap-16">
+		<div className="flex flex-col gap-16 h-[832px]">
 			<h1 className="text-center text-4xl text-red-800">Our Growth Partners</h1>
 			<div className="grid grid-cols-4 gap-6 h-[800px] justify-items-center bg-[#f9bc6b] overflow-hidden relative">
 				<Image src={BgLineImage} alt="Background Line" className="absolute filter brightness-50 w-full" />
 				<div className="flex flex-col gap-6 animate-scroll">
-					{ourGrowthPartners.map((item, index) => (
+					{duplicatedPartners.map((item, index) => (
 						<div key={index} className="min-w-[250px] flex justify-center">
-							<div className="bg-[#F8D53C] flex flex-col gap-3 justify-center items-center text-center rounded-2xl h-[250px] w-[250px]">
-								<Image src={item.image} alt="User Image" width={120} height={120} />
-								<h2 className="text-2xl w-[80%]">{item.name}</h2>
-								<p className="text-sm w-[80%]">{item.brand}</p>
+							<div className="bg-white border border-gray-200 shadow-lg p-4  flex flex-col items-center rounded-2xl w-[250px] overflow-hidden">
+								<div className="relative w-full h-full rounded-t-2xl overflow-hidden">
+									<Image src={item.image} alt="User Image" className='w-full h-full object-cover' width={0} height={0}/>
+								</div>
+								<div className="bg-[#F8D53C] w-full py-3 px-4 text-center rounded-b-2xl">
+									<h2 className="text-lg font-bold">{item.name}</h2>
+									<p className="text-sm text-gray-700">{item.brand}</p>
+								</div>
 							</div>
 						</div>
 					))}
 				</div>
+
 				<div className="flex flex-col gap-6 animate-scrollDown">
-					{ourGrowthPartners.map((item, index) => (
+					{duplicatedPartners.map((item, index) => (
 						<div key={index} className="min-w-[250px] flex justify-center">
-							<div className="bg-[#F8D53C] flex flex-col gap-3 justify-center items-center text-center rounded-2xl h-[250px] w-[250px]">
-								<Image src={item.image} alt="User Image" width={120} height={120} />
-								<h2 className="text-2xl w-[80%]">{item.name}</h2>
-								<p className="text-sm w-[80%]">{item.brand}</p>
+							<div className="bg-white border border-gray-200 shadow-lg p-4  flex flex-col items-center rounded-2xl w-[250px] overflow-hidden">
+								<div className="relative w-full h-full rounded-t-2xl overflow-hidden">
+									<Image src={item.image} alt="User Image" className='w-full h-full object-cover' width={0} height={0} />
+								</div>
+								<div className="bg-[#F8D53C] w-full py-3 px-4 text-center rounded-b-2xl">
+									<h2 className="text-lg font-bold">{item.name}</h2>
+									<p className="text-sm text-gray-700">{item.brand}</p>
+								</div>
 							</div>
 						</div>
 					))}
 				</div>
 				<div className="flex flex-col gap-6 animate-scroll">
-					{ourGrowthPartners.map((item, index) => (
+					{duplicatedPartners.map((item, index) => (
 						<div key={index} className="min-w-[250px] flex justify-center">
-							<div className="bg-[#F8D53C] flex flex-col gap-3 justify-center items-center text-center rounded-2xl h-[250px] w-[250px]">
-								<Image src={item.image} alt="User Image" width={120} height={120} />
-								<h2 className="text-2xl w-[80%]">{item.name}</h2>
-								<p className="text-sm w-[80%]">{item.brand}</p>
+							<div className="bg-white border border-gray-200 shadow-lg p-4  flex flex-col items-center rounded-2xl w-[250px] overflow-hidden">
+								<div className="relative w-full h-full rounded-t-2xl overflow-hidden">
+									<Image src={item.image} alt="User Image" className='w-full h-full object-cover' width={0} height={0} />
+								</div>
+								<div className="bg-[#F8D53C] w-full py-3 px-4 text-center rounded-b-2xl">
+									<h2 className="text-lg font-bold">{item.name}</h2>
+									<p className="text-sm text-gray-700">{item.brand}</p>
+								</div>
 							</div>
 						</div>
 					))}
 				</div>
 				<div className="flex flex-col gap-6 animate-scrollDown">
-					{ourGrowthPartners.map((item, index) => (
+					{duplicatedPartners.map((item, index) => (
 						<div key={index} className="min-w-[250px] flex justify-center">
-							<div className="bg-[#F8D53C] flex flex-col gap-3 justify-center items-center text-center rounded-2xl h-[250px] w-[250px]">
-								<Image src={item.image} alt="User Image" width={120} height={120} />
-								<h2 className="text-2xl w-[80%]">{item.name}</h2>
-								<p className="text-sm w-[80%]">{item.brand}</p>
+							<div className="bg-white border border-gray-200 shadow-lg p-4  flex flex-col items-center rounded-2xl w-[250px] overflow-hidden">
+								<div className="relative w-full h-full rounded-t-2xl overflow-hidden">
+									<Image src={item.image} alt="User Image" className='w-full h-full object-cover' width={0} height={0} />
+								</div>
+								<div className="bg-[#F8D53C] w-full py-3 px-4 text-center rounded-b-2xl">
+									<h2 className="text-lg font-bold">{item.name}</h2>
+									<p className="text-sm text-gray-700">{item.brand}</p>
+								</div>
 							</div>
 						</div>
 					))}

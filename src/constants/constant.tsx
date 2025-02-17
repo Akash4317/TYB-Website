@@ -18,7 +18,7 @@ export const ProgressCardsInfo = [
     title: "Traceability",
     description:
       "We ensure traceability across our supply chain, enhancing transparency and accountability. By collaborating with partners, we track materials back to their source. This strengthens trust and promotes ethical sourcing.",
-    imageUrl: "https://s3-alpha-sig.figma.com/img/c253/c63c/a3c18a2ced7bee509d486f4a7cba15cf?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=blO-JbiWXw02ygTbBDaB0BwDa2nxHDxM8r2olSNAYftHUKtZJtJVjk-2Vdd6qm-0XZbhavoTkXWA2aKASXXgKBVMiMPlCx0wJIBdQMwZRgztBYM1D1l347V1v33IeiI8divDUqGemF00zchnyY~vtay7bglUVJJ3N9FOs7XTYj5BiRi2XLz~ce0VwMKPidUsCabF68gzVw7dmM-BVjBSZ-Fxhwwj66LNaO83EqZhqAs6MVlG-~n7PDU-UNd1-VMkN-KQd6fhhIENDAZHvo0rxgF2ijedyBDnFPcvvqZgTmAQ0t8aIw34lZZpYRAXRu-NB4ulHlefqa-2JE5Ipxr9aw__",
+    imageUrl: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/cotton-plant-closeup-field+1.svg",
   },
   {
     title: "Sustainability",
@@ -36,7 +36,7 @@ export const ProgressCardsInfo = [
     title: "Traceability",
     description:
       "We ensure traceability across our supply chain, enhancing transparency and accountability. By collaborating with partners, we track materials back to their source. This strengthens trust and promotes ethical sourcing.",
-    imageUrl: "https://s3-alpha-sig.figma.com/img/c253/c63c/a3c18a2ced7bee509d486f4a7cba15cf?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=blO-JbiWXw02ygTbBDaB0BwDa2nxHDxM8r2olSNAYftHUKtZJtJVjk-2Vdd6qm-0XZbhavoTkXWA2aKASXXgKBVMiMPlCx0wJIBdQMwZRgztBYM1D1l347V1v33IeiI8divDUqGemF00zchnyY~vtay7bglUVJJ3N9FOs7XTYj5BiRi2XLz~ce0VwMKPidUsCabF68gzVw7dmM-BVjBSZ-Fxhwwj66LNaO83EqZhqAs6MVlG-~n7PDU-UNd1-VMkN-KQd6fhhIENDAZHvo0rxgF2ijedyBDnFPcvvqZgTmAQ0t8aIw34lZZpYRAXRu-NB4ulHlefqa-2JE5Ipxr9aw__",
+    imageUrl: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/cotton-plant-closeup-field+1.svg",
   },
   {
     title: "Sustainability",
@@ -54,7 +54,7 @@ export const ProgressCardsInfo = [
     title: "Traceability",
     description:
       "We ensure traceability across our supply chain, enhancing transparency and accountability. By collaborating with partners, we track materials back to their source. This strengthens trust and promotes ethical sourcing.",
-    imageUrl: "https://s3-alpha-sig.figma.com/img/c253/c63c/a3c18a2ced7bee509d486f4a7cba15cf?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=blO-JbiWXw02ygTbBDaB0BwDa2nxHDxM8r2olSNAYftHUKtZJtJVjk-2Vdd6qm-0XZbhavoTkXWA2aKASXXgKBVMiMPlCx0wJIBdQMwZRgztBYM1D1l347V1v33IeiI8divDUqGemF00zchnyY~vtay7bglUVJJ3N9FOs7XTYj5BiRi2XLz~ce0VwMKPidUsCabF68gzVw7dmM-BVjBSZ-Fxhwwj66LNaO83EqZhqAs6MVlG-~n7PDU-UNd1-VMkN-KQd6fhhIENDAZHvo0rxgF2ijedyBDnFPcvvqZgTmAQ0t8aIw34lZZpYRAXRu-NB4ulHlefqa-2JE5Ipxr9aw__",
+    imageUrl:"https://tyb-website-next.s3.ap-south-1.amazonaws.com/cotton-plant-closeup-field+1.svg",
   },
   {
     title: "Sustainability",

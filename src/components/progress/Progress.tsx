@@ -2,7 +2,7 @@
 import React from 'react'
 import Subheading from '../ui/Subheading'
 import { ProgressCardsInfo } from '@/constants/constant';
-import Progresscard from './Progresscard';
+// import Progresscard from './Progresscard';
 import MasonryCards from '../ui/MasonryCards';
 
 
