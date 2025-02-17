@@ -9,6 +9,7 @@ interface Card {
     imageUrl: string
     title: string
     description: string
+    isSmall?: boolean
 }
 
 interface MasonryCardsProps {
@@ -24,7 +25,7 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
     }
 
     return (
-        <div className="w-full my-[50px] px-4">
+        <div className="w-full my-[50px] p-4">
             <Masonry
                 breakpointCols={breakpointColumnsObj}
                 className="flex w-auto -ml-4"
@@ -45,8 +46,9 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
                                 loading="lazy"
                                 width={0}
                                 height={0}
-                                className="w-full h-auto object-cover transition-all duration-500 grayscale group-hover:grayscale-0"
+                                className="w-full h-auto object-cover transition-all duration-500 group-hover:grayscale"
                             />
+
 
                             <motion.div
                                 className="absolute inset-0 bg-black/40"
@@ -57,7 +59,7 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
 
                             <div className="absolute inset-0 flex flex-col justify-end p-6 text-white overflow-hidden">
                                 <motion.div
-                                    initial={{ y: 100 }}
+                                    initial={{ y: card.isSmall ? 50 : 100 }}
                                     whileHover={{ y: 0 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
                                 >
@@ -67,7 +69,7 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
                                         initial={{ opacity: 0, y: 20 }}
                                         whileHover={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
-                                        className="text-md text-center  font-bold"
+                                        className="text-md text-center font-bold"
                                     >
                                         {card.description}
                                     </motion.p>

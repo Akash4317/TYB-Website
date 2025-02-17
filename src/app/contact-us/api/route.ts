@@ -9,13 +9,14 @@ export async function POST(req: Request) {
         if (!leadUrl) {
             throw new Error('LEAD_URL environment variable is not defined');
         }
+        const data = await req.json();
         const response = await fetch(leadUrl, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
-            'x-api-key': 'bkVcVHsJF36YEQs2o7xOf5Xi4LOY6HX3Axphmrvj'
+            'x-api-key': process.env.LAMBDA_API_KEY || '',
             },
-            body: JSON.stringify(req.body),
+            body: JSON.stringify(data),
         });
         if (response.ok) {
             return NextResponse.json({ message: 'Message sent successfully' }, { status: 200 });

@@ -29,7 +29,7 @@ const Glory = () => {
                                             allowFullScreen
                                         ></iframe>
                                     ) : ( */}
-                                        <Image className='w-full h-auto' src={testimonial.image} width={400} height={300} alt='carousel' />
+                                        <Image className='w-full h-auto' src={testimonial.image} width={0} height={0} alt={testimonial.title} />
                                     {/* )} */}
                                 </div>
                                 <div className="w-full md:w-1/2 flex flex-col justify-center">

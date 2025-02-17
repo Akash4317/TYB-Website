@@ -75,8 +75,8 @@ export default {
         },
       },
       animation: {
-        scroll: "scrollUp 15s linear infinite",
-        scrollDown: "scrollDown 15s linear infinite",
+        scroll: "scrollUp 20s linear infinite",
+        scrollDown: "scrollDown 20s linear infinite",
         scrollRight: "scrollRight 30s linear infinite",
         scrollLeft: "scrollLeft 30s linear infinite",
       },
