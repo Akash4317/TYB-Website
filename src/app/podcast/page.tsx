@@ -16,7 +16,7 @@ export const generateMetadata = (): Metadata => {
 	};
 };
 
-export const fetchContent = async (type: contentTypeEnum) => {
+const fetchContent = async (type: contentTypeEnum) => {
 	try {
 		if (!process.env.LAMBDA_ENDPOINT) {
 			throw new Error('LAMBDA_ENDPOINT is not defined');
