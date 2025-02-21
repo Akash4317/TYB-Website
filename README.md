@@ -80,7 +80,21 @@ docker run -p 3000:3000 project-name
 - The `.gitlab-ci.yml` file contains deployment scripts for GitLab pipelines.
 
 ## Contributing
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit changes.
-4. Open a pull request.
+1. Clone the repository and create a new branch for your changes.
+```sh
+git clone <repository-url>
+cd project-folder
+git checkout -b feature/branch
+```
+2. Make your changes and commit them with a meaningful message.
+```sh
+git commit -m "Add new feature"
+```
+3. Push the branch to GitLab.
+```sh
+git push origin feature/branch
+```
+4. Open a Merge Request (MR) on GitLab.
+5. Request a review and make any necessary changes based on feedback.
+6. Once approved, merge the branch into the main branch.
+
