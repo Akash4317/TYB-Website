@@ -1,4 +1,4 @@
-# Project Name
+# The Yarn Bazaar Website
 
 ## Overview
 This project is a Next.js-based website built using TypeScript, Tailwind CSS, and modular components. It follows a structured component-based approach with reusable UI elements, API integration, and server-side rendering (SSR).
