@@ -21,9 +21,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Certificate />
       <Subhero />
-      <Divider />
       <Glory />
       <Divider />
       <Say />

@@ -8,7 +8,7 @@ interface SubheadingProps {
 
 const Subheading: React.FC<SubheadingProps> = ({ text, className = '' }) => {
     return (
-        <h2 className={`text-[50px] font-bold font-poppins ${className ?? ''}`}>
+        <h2 className={`text-[46px] font-semibold font-poppins ${className ?? ''}`}>
             {text}
         </h2>
     );
