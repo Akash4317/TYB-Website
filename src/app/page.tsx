@@ -1,13 +1,13 @@
 import { Metadata } from "next";
-
-import Bandhu from "@/components/bandhu/Bandhu";
 import FaqSection from "@/components/FAQ/FaqSection";
 import Glory from "@/components/Glory/Glory";
 import Hero from "@/components/hero/Hero";
 import Subhero from "@/components/hero/Subhero";
 import Media from "@/components/images-scroll/Media";
-import Product from "@/components/product/Product";
 import Bandhu2 from "@/components/bandhu/Bandhu2";
+import Say2 from "@/components/Glory/Say2";
+import ProductNew from "@/components/product/ProductNew";
+import Pillar from "@/components/progress/Pillar";
 
 export const metadata: Metadata = {
   title: "The Yarn Bazaar",
@@ -20,8 +20,9 @@ export default function Home() {
       <Hero />
       <Subhero />
       <Glory />
-      <Product />
-      <Bandhu />
+      <Say2 />
+      <ProductNew />
+      <Pillar />
       <Bandhu2 />
       <Media />
       <FaqSection />

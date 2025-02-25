@@ -24,7 +24,7 @@ const ProductSlideCard = ({ sliderData }: { sliderData: SliderData }) => {
         >
             <div
                 style={{ backgroundColor }}
-                className="w-full rounded-3xl px-6 md:px-12 lg:px-16 py-12 flex flex-col md:flex-row items-center justify-between shadow-2xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl"
+                className="w-full rounded-3xl px-6 md:px-12 lg:px-16 py-12 flex flex-col border shadow-xl md:flex-row items-center justify-between transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl"
             >
                 <div className="w-full md:w-1/2 flex flex-col gap-6">
                     <motion.h4

@@ -155,7 +155,7 @@ body {
   position: sticky;
   top: 120px;
   padding-top: calc(var(--index) * var(--cardTopPadding));
-  height: calc(100vh - 120px);
+  height: calc(80vh - 120px);
   display: flex;
   align-items: center;
 }
@@ -455,4 +455,54 @@ body {
 
 .search-input:focus {
   animation: pulse 1.5s infinite;
+}
+
+/* siper for home */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #FFAB1A !important;
+}
+.custom-swiper .swiper-slide {
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+.custom-swiper .swiper-slide-active .slide-container {
+  transform: scale(1.12);
+  /* Adjust scale value as needed */
+  transition: transform 0.3s;
+  z-index: 10;
+}
+
+/* Optional: Add spacing between slides */
+.custom-swiper .swiper-slide {
+  margin: 0 10px;
+}
+/* Ensure swiper container has proper sizing */
+.custom-swiper {
+  overflow: visible !important;
+}
+
+/* Fix for parent container clipping */
+.relative.max-w-6xl.mx-auto.px-6 {
+  overflow: hidden;
+}
+.slide-container {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+.swiper-slide {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.swiper-wrapper {
+  overflow: visible;
+}
+
+
+
+
+/* masonary */
+.break-inside-avoid {
+  break-inside: avoid;
 }

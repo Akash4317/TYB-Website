@@ -294,3 +294,117 @@ export const mediaCoverageData: ScrollImagesInterface[] = [
     alt: "economic-retail"
   }
 ];
+
+export const testimonialsSay = [
+  {
+    id: 1,
+    name: "John Doe",
+    username: "@johndoe",
+    image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/testImage.jpg",
+    title: "It was a very good experience",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim arcu. Elementum felis magna pretium in tincidunt. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu.",
+    company: "Yarn Broker",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    username: "@janesmith",
+    image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/testImage.jpg",
+    title: "Seamless Transactions",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim arcu. Elementum felis magna pretium in tincidunt. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu.",
+    company: "Yarn Broker",
+  },
+  {
+    id: 3,
+    name: "John Doe",
+    username: "@johndoe",
+    image: 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/testImage.jpg',
+    title: "It was a very good experience",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim arcu. Elementum felis magna pretium in tincidunt. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu.",
+    company: "Yarn Broker",
+  },
+  {
+    id: 4,
+    name: "Jane Smith",
+    username: "@janesmith",
+    image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/testImage.jpg",
+    title: "Seamless Transactions",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim arcu. Elementum felis magna pretium in tincidunt. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu.",
+    company: "Yarn Broker",
+  },
+];
+
+export const PeopleTestimonials = [
+  {
+    name: 'Hanry',
+    username: '@hanry_co',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img1.jpg?updatedAt=1719642489369',
+    text:
+      "Switching to Yarn Broker has been a game-changer for our yarn business! Their platform is intuitive and makes both buying and selling yarn a breeze. Highly recommended!",
+  },
+  {
+    name: 'md khalid',
+    username: '@md_khalid',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img2.jpg?updatedAt=1719642489427',
+    text:
+      "I was truly impressed by the personalized support from Yarn Broker. They understand the nuances of the yarn market and always ensure I get the best deals for my business!",
+  },
+  {
+    name: 'Kevin',
+    username: '@Kevin_pet',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img4.jpg?updatedAt=1719642497047',
+    text:
+      "Highly recommend Yarn Broker for anyone in the yarn industry. Their platform is robust, and the team is incredibly supportive when it comes to sourcing high-quality yarns.",
+  },
+  {
+    name: 'Ujval Joshi',
+    username: '@ujvaljoshi',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img5.jpg?updatedAt=1719642496997',
+    text:
+      "Using Yarn Broker has simplified our operations immensely and expanded our network. It's the perfect solution for anyone looking to buy or sell yarn efficiently.",
+  },
+  {
+    name: 'Sebastiaan de With',
+    username: '@sdw',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img6.jpg?updatedAt=1719642497043',
+    text:
+      "After trying various yarn marketplaces, Yarn Broker stood out for its simplicity and cost-effectiveness. I couldn't be happier with the service!",
+  },
+  {
+    name: 'Michal Malewicz',
+    username: '@michalmalewicz',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img7.jpg?updatedAt=1719642497006',
+    text:
+      "I love how customizable Yarn Broker is! Whether I'm tailoring my buying experience or managing my selling options, everything is just a click away. Truly awesome!",
+  },
+  {
+    name: 'Neil Hainsworth',
+    username: '@_neilorangepeel',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img8.jpg?updatedAt=1719642497316',
+    text:
+      "Why settle for less when Yarn Broker gives you the freedom to choose? Their flexible payment options and seamless transactions are exactly what a modern yarn business needs.",
+  },
+  {
+    name: 'Vladimir Kharlampidi',
+    username: '@nolimits4web',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img9.jpg?updatedAt=1719642497408',
+    text:
+      "Switching to Yarn Broker has saved us significant costs on transactions. Their flexible solutions and market insights are a game-changer for any yarn trader.",
+  },
+  {
+    name: 'Alex Pesenka',
+    username: '@alex_pesenka',
+    image:
+      'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img10.jpg?updatedAt=1719642489417',
+    text:
+      "With Yarn Broker, we've scaled our yarn business seamlessly. Their platform grows with you, offering everything needed to succeed in the dynamic world of yarn trading.",
+  },
+];

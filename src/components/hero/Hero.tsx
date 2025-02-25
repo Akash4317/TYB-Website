@@ -54,7 +54,6 @@ const Hero = () => {
         </div>
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex flex-col items-center max-w-[280px] sm:max-w-[320px] md:max-w-full">
-          {/* Main Image Animation */}
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -67,7 +66,6 @@ const Hero = () => {
               <Image src={images[index]} alt="main" width={300} height={220} className="object-cover" />
             </motion.div>
           </AnimatePresence>
-          {/* Base Images with Bounce Animation */}
           <div className="flex flex-col items-center mt-4">
             <motion.div
               key={`base1-${index}`}

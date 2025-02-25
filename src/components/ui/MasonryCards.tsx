@@ -34,21 +34,20 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
                 {cards.map((card, index) => (
                     <motion.div
                         key={index}
-                        className="mb-4 overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl group relative"
+                        className="w-full mb-4 overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl group relative break-inside-avoid"
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                        <div className="relative">
+                        <div className="relative aspect-square">
                             <Image
                                 src={card.imageUrl}
                                 alt={card.title}
+                                fill
                                 loading="lazy"
-                                width={0}
-                                height={0}
-                                className="w-full h-auto object-cover transition-all duration-500 group-hover:grayscale"
+                                className="object-cover transition-all duration-500 group-hover:grayscale"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
-
 
                             <motion.div
                                 className="absolute inset-0 bg-black/40"
@@ -84,4 +83,3 @@ const MasonryCards: React.FC<MasonryCardsProps> = ({ cards }) => {
 }
 
 export default MasonryCards
-
