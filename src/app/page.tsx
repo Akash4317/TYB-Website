@@ -23,19 +23,10 @@ export default function Home() {
       <Hero />
       <Subhero />
       <Glory />
-      <Divider />
-      <Say />
-      <Divider />
       <Product />
-      <Divider />
-      <Media />
-      <Divider />
       <Bandhu />
-      <Divider />
-      <Progress />
-      <Divider />
+      <Media />
       <FaqSection />
-      <Divider />
     </>
   );
 }
