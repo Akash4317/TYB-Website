@@ -8,7 +8,7 @@ import WavyImage from "@/images/about-us/wavesOpacity.svg";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-[#FAE7E2] text-foreground pt-44 flex flex-col relative overflow-hidden mt-8">
+        <footer className="text-foreground pt-44 flex flex-col relative overflow-hidden">
             <Image src={WavyImage} alt="Wavy Image" className="opacity w-full absolute top-0 " />
             <div className="flex flex-col gap-8 justify-center items-center px-4 md:px-8">
                 <Image src={TYBFullLogo} alt="company logo" className="md:w-[40%] w-[70%]" />
