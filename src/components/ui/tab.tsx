@@ -13,11 +13,11 @@ const Tab = ({ tabs }: TabProps) => {
   return (
     <div className='min-h-[600px] max-w-full flex flex-col space-y-6 relative'>
       <div className="flex flex-col items-center gap-4">
-        <div className="bg-[#F89E24] h-14 w-[80%] min-w-[350px] max-w-[800px] rounded-[30px] grid grid-cols-3 p-2 justify-evenly items-center text-[#A33B35] text-xl font-bold">
+        <div className="h-14 w-[80%] min-w-[350px] max-w-[800px] rounded-[30px] grid grid-cols-3 p-2 justify-evenly items-center text-xl font-bold">
           {tabs.map((tab, index) => (
             <div
               key={tab.title}
-              className={`rounded-[24px] px-4 flex justify-center items-center h-full cursor-pointer ${activeTab === index ? 'bg-[#F8D53C]' : ''}`}
+              className={`rounded-[24px] px-4 flex justify-center items-center h-full cursor-pointer ${activeTab === index ? 'bg-primary text-background' : 'bg-muted text-muted-foreground'}`}
               onClick={() => setActiveTab(index)}
             >
               {tab.title}
