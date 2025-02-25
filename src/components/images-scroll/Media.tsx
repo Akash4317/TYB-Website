@@ -9,7 +9,7 @@ const Media = () => {
   return (
     <div className='bg-white py-48 space-y-16'>
       <Subheading text='In The Media' position='center' />
-      <Scroll data={mediaCoverageData} />
+      <Scroll data={mediaCoverageData} images={[]} />
     </div>
   )
 }

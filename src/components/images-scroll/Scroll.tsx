@@ -9,6 +9,7 @@ export interface ScrollImagesInterface {
 }
 interface ScrollProps {
     data: ScrollImagesInterface[];
+    images: string[];
 }
 
 const Scroll: React.FC<ScrollProps> = ({ data }) => {

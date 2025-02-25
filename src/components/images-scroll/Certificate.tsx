@@ -15,7 +15,7 @@ const Certificate = () => {
       <div>
           {/* <Subheading text='Collaborating with Excellence' className='text-center text-[#B02430]'/> */}
           <div className='md:mb-0 mb-10'>
-          <Scroll images={images} />
+        <Scroll data={images} images={images} />
           </div>
     </div>
   )
