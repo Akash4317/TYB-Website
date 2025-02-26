@@ -30,25 +30,27 @@ const Hero = () => {
     >
       <div className="relative w-full max-w-[95%] mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Text Section */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl leading-tight md:leading-snug">
-            Empowering The <br /> Yarn Industry with
+        <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
+          <h1 className="text-4xl md:text-6xl xl:text-[64px] font-bold leading-tight md:leading-tight">
+            Empowering The <br className="hidden md:block" /> Yarn Industry with
           </h1>
-          <span className="relative flex items-center justify-center h-[40px] md:h-[51px] w-[280px] md:w-[535px] mx-auto md:mx-0">
+
+          <div className="relative h-20 md:h-22 w-full">
             <AnimatePresence mode="wait">
-              <motion.h1
+              <motion.span
                 key={texts[index]}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 50, opacity: 0 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 top-5 text-[40px] md:text-[90px] text-[#FFAB1A]"
+                exit={{ y: -50, opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute inset-0 text-5xl md:text-8xl  bg-gradient-to-r from-[#FFAB1A] to-[#ffd58a] bg-clip-text text-transparent font-extrabold"
               >
                 {texts[index]}
-              </motion.h1>
+              </motion.span>
             </AnimatePresence>
-          </span>
-          <p className="text-xl pt-12 ml-2 ">
+          </div>
+
+          <p className="text-lg md:text-xl lg:text-xl  max-w-2xl mx-auto md:mx-0 pl-2  ">
             Discover and Buy Top Quality Yarn at Unbeatable Prices
           </p>
         </div>

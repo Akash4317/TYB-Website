@@ -5,23 +5,21 @@ import { testimonialsSay } from '@/constants/constant';
 import Image from 'next/image';
 import testmark from '@/images/testMark.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/autoplay';
-import 'swiper/css/navigation'; // Add this line
+import 'swiper/css/navigation'; 
 
 const Say2 = () => {
     return (
         <div className='w-full bg-white pb-20'>
             <Subheading text='What People Say' className='text-[#B02430] text-center py-[80px]' />
 
-            <div className="container mx-auto px-4 relative"> {/* Add relative positioning here */}
+            <div className="container mx-auto px-4 relative"> 
                 <Swiper
-                    modules={[Navigation, Autoplay]}
+                    modules={[Navigation]}
                     spaceBetween={30}
                     slidesPerView={3}
                     centeredSlides={true}
-                    autoplay={{ delay: 3000, disableOnInteraction: false }}
                     loop={true}
                     breakpoints={{
                         320: { slidesPerView: 1 },
@@ -29,8 +27,8 @@ const Say2 = () => {
                         1024: { slidesPerView: 3 }
                     }}
                     navigation={{
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
+                        nextEl: ".swiper1-button-next",
+                        prevEl: ".swiper1-button-prev",
                     }}
                     className="testimonial-swiper"
                 >
@@ -71,9 +69,8 @@ const Say2 = () => {
                     ))}
                 </Swiper>
 
-                {/* Navigation Buttons */}
-                <button className="swiper-button-prev !-left-5 after:!text-[#B02430]"></button>
-                <button className="swiper-button-next !-right-5 after:!text-[#B02430]"></button>
+                <button className="swiper-button-prev swiper1-button-prev absolute !-left-5 top-1/2 -translate-y-1/2 z-10"></button>
+                <button className="swiper-button-next swiper1-button-next absolute !-right-5 top-1/2 -translate-y-1/2 z-10"></button>
             </div>
         </div>
     )
