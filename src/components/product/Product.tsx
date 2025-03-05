@@ -8,9 +8,7 @@ const Product = () => {
       <>
         <div className="product-slider">
         <Subheading text='Our Products' className='text-[#B02430] text-center pt-10 sticky top-0' />
-         {sliderCardData.map((data) => (
-          <ProductSlideCard key={data.id} sliderData={data} />
-         ))}
+        
       </div>
     </>
   )

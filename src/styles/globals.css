@@ -4,7 +4,7 @@
 
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -154,7 +154,6 @@ body {
 .card-slide {
   position: sticky;
   top: 120px;
-  padding-top: calc(var(--index) * var(--cardTopPadding));
   height: calc(80vh - 120px);
   display: flex;
   align-items: center;
@@ -242,7 +241,6 @@ body {
 .logos {
   display: flex;
   overflow: hidden;
-  white-space: nowrap;
   position: relative;
 }
 
@@ -295,100 +293,6 @@ body {
   z-index: 2;
   content: '';
 }
-
-/* chat bubble  */
-@media(min-width: 768px) {
-  .tri-right.border.btm-right:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: auto;
-    right: -8px;
-    bottom: -40px;
-    border: 20px solid;
-    border-color: #facc15 #facc15 transparent transparent;
-  }
-
-  .tri-right.btm-right:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: auto;
-    right: 0px;
-    border: 30px solid;
-    border-color: #facc15 #facc15 transparent transparent;
-  }
-
-  .tri-right.right-top:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 20px;
-    left: auto;
-    right: -40px;
-    top: 0px;
-    border: 20px solid;
-    border-color: transparent transparent #facc15 #facc15;
-  }
-
-  .right-top:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 20px;
-    left: auto;
-    right: -40px;
-    top: 0px;
-    bottom: 10px;
-    border-color: transparent transparent #facc15 #facc15;
-  }
-
-  .tri-right.border.btm-left:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: -8px;
-    bottom: -40px;
-    border: 20px solid;
-    border-color: #facc15 transparent transparent #facc15;
-  }
-
-  .tri-right.btm-left:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 0px;
-    bottom: -40px;
-    border: 30px solid;
-    border-color: #facc15 transparent transparent #facc15;
-  }
-
-  .tri-right.top-left:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 20px;
-    left: -40px;
-    top: 0px;
-    border: 20px solid;
-    border-color: transparent #facc15 #facc15 transparent;
-  }
-
-  .top-left:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 20px;
-    left: -40px;
-    top: 0px;
-    border-color: transparent #facc15 #facc15 transparent;
-  }
-}
-
 
 
 /*faq styling*/
@@ -470,4 +374,57 @@ body {
 /* masonary */
 .break-inside-avoid {
   break-inside: avoid;
+}
+
+
+
+/* marquee for testimonial  */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.marquee-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+  z-index: 2;
+}
+
+.marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
+  z-index: 2;
+}
+
+.animate-marquee-infinite {
+  animation: marquee 20s linear infinite;
+  width: max-content;
+}
+
+.marquee-container:hover .animate-marquee-infinite {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-infinite {
+    animation: none;
+  }
 }

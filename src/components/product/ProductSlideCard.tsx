@@ -24,11 +24,11 @@ const ProductSlideCard = ({ sliderData }: { sliderData: SliderData }) => {
         >
             <div
                 style={{ backgroundColor }}
-                className="w-full rounded-3xl px-6 md:px-12 lg:px-16 py-12 flex flex-col border shadow-xl md:flex-row items-center justify-between transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl"
+                className="w-full rounded-3xl px-6 md:px-12  py-12 flex flex-col border shadow-xl md:flex-row items-center justify-between transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl"
             >
                 <div className="w-full md:w-1/2 flex flex-col gap-6">
                     <motion.h4
-                        className="text-3xl md:text-4xl font-bold text-gray-800 font-poppins leading-tight"
+                        className="text-3xl md:text-3xl font-bold text-[#A33B35] font-poppins leading-tight"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -48,9 +48,8 @@ const ProductSlideCard = ({ sliderData }: { sliderData: SliderData }) => {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                                 >
-                                    <span className="text-[#A33B35] font-semibold mr-3 text-2xl">♦</span>
                                     <span>
-                                        <span className="text-[#A33B35] font-semibold">{highlightTitle.trim()}</span>: {description?.trim()}
+                                        <span className="text-[#000] font-semibold">{highlightTitle.trim()}</span>: {description?.trim()}
                                     </span>
                                 </motion.li>
                             )

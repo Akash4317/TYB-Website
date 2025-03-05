@@ -35,7 +35,7 @@ const Hero = () => {
             Empowering The <br className="hidden md:block" /> Yarn Industry with
           </h1>
 
-          <div className="relative h-20 md:h-22 w-full">
+          <div className="relative h-20 md:h-28 w-full">
             <AnimatePresence mode="wait">
               <motion.span
                 key={texts[index]}
@@ -55,7 +55,7 @@ const Hero = () => {
           </p>
         </div>
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex flex-col items-center max-w-[280px] sm:max-w-[320px] md:max-w-full">
+        <div className="w-full  md:w-1/2 flex flex-col items-center max-w-[280px] sm:max-w-[320px] md:max-w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -63,18 +63,18 @@ const Hero = () => {
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: -50, opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="relative"
+              className="absolute top-0 md:-top-10"
             >
               <Image src={images[index]} alt="main" width={300} height={220} className="object-cover" />
             </motion.div>
           </AnimatePresence>
-          <div className="flex flex-col items-center mt-4">
+          <div className="flex flex-col items-center mt-[250px]">
             <motion.div
               key={`base1-${index}`}
               initial={{ y: 0 }}
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="mt-0 md:-mt-4"
+              className=""
             >
               <Image src={base} alt="base" width={220} height={220} />
             </motion.div>
@@ -83,7 +83,7 @@ const Hero = () => {
               initial={{ y: 0 }}
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 0.6, ease: "easeInOut", delay: 0.1 }}
-              className="mt-0 md:-mb-4"
+              className="mt-0 md:-mb-0"
             >
               <Image src={base} alt="base" width={220} height={220} />
             </motion.div>

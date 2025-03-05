@@ -139,7 +139,7 @@ export const sliderCardData = [
     id: "card1",
     title: "Streamlined Order Insights and Tracking",
     image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/Group+1000003838.png",
-    backgroundColor: "#FFE4E1",
+    backgroundColor: "#FFFFFF",
     highlights: [
       'Order Tracking Made Easy : Monitor pending and completed orders in real time.',
       'Comprehensive Payment Overview : Stay updated with ongoing, paid, and outstanding payment details.',
@@ -150,7 +150,7 @@ export const sliderCardData = [
     id: "card2",
     title: "Efficient Vendor Management",
     image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/Group+1000003832.png",
-    backgroundColor: "#F0F8FF",
+    backgroundColor: "#FFF3EF",
     highlights: [
       'Comprehensive Vendor List : Access and manage a centralized list of all registered vendors.',
       'Progress Tracking : Easily monitor the completion status of vendor-related activities.',
@@ -161,7 +161,7 @@ export const sliderCardData = [
     id: "card3",
     title: "Comprehensive Vendor Details",
     image: "https://tyb-website-next.s3.ap-south-1.amazonaws.com/Screenshot+2025-01-13+at+1.03.26%E2%80%AFPM+2.png",
-    backgroundColor: "#D3D3D3",
+    backgroundColor: "#FFFFFF",
     highlights: [
       'Detailed Partner Profiles : Access all vital information, including general and departmental data, in a unified view.',
       'Streamlined Interface : Easily navigate and manage partner details without any complexity.',

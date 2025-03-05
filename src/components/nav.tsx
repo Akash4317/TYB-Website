@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
 							priority
 						/>
 					</div>
-					<ul className="flex gap-24 items-center relative">
+					<ul className="flex gap-10 items-center relative">
 						{links.map((link, index) => (
 							<li
 								key={link.url}
