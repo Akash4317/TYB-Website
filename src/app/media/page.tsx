@@ -7,6 +7,7 @@ import BlogPage from "./blog/blogs";
 import PodcastPage from "./podcast/podcasts";
 import ArticlePage from "./news/articles";
 import { TabData } from "@/constants/interface";
+import UnderConstruction from "@/components/UnderConstruction";
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -34,7 +35,8 @@ const tabs: TabData[] = [
 const MediaPage = async () => {
   return (
     <div className='min-h-[600px] max-w-full flex flex-col space-y-6 pt-12 md:pt-6 relative'>
-      <Tab tabs={tabs} />
+      {/* <Tab tabs={tabs} /> */}
+      <UnderConstruction />
     </div>
   );
 }

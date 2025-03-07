@@ -14,6 +14,7 @@ import JourneyImage from "@/images/about-us/journeyLine.svg";
 import ForegroundImage from "@/images/about-us/foreground.svg";
 import ManufacturingImage from "@/images/about-us/manufacturing.svg";
 import MasonryCards from '@/components/ui/MasonryCards';
+import UnderConstruction from '@/components/UnderConstruction';
 
 export const generateMetadata = (): Metadata => {
 	return {
@@ -419,7 +420,8 @@ const AboutUsPage = async () => {
 
 	return (
 		<div className="flex flex-col gap-16">
-			<DiveSection />
+			<UnderConstruction />
+			{/* <DiveSection />
 			<Divider />
 			<EvolvedOverTheYears />
 			<Divider />
@@ -431,7 +433,7 @@ const AboutUsPage = async () => {
 			<Divider />
 			<OurGrowthPartners />
 			<Divider />
-			<OurStrength />
+			<OurStrength /> */}
 		</div>
 	);
 };
