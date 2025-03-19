@@ -1,5 +1,6 @@
 import { JSX } from "react";
 import { contentTypeEnum } from "./constant";
+import { StaticImageData } from "next/image";
 
 export interface TabData {
   title: string;
@@ -36,4 +37,16 @@ export interface PodcastInterface {
 export interface LinkInterface {
   label: string;
   url: string;
+}
+export interface SocialLinkInterface {
+	icon: string | StaticImageData;
+	link: string;
+	alt: string;
+}
+
+export interface PillarData {
+  src: string | StaticImageData;
+  alt: string;
+  title: string;
+  description: string;
 }
