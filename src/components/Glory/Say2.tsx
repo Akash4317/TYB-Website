@@ -20,7 +20,7 @@ const Say2 = () => {
                     {duplicatedTestimonials.map((item, index) => (
                         <div
                             key={index}
-                            className="flex-shrink-0 mx-4 relative bg-white rounded-lg shadow-md p-5 w-[350px] transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                            className="flex-shrink-0 mx-4 relative bg-white rounded-lg shadow-md p-5 w-[320px] transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                         >
                             <span className="absolute top-3 right-4 cursor-pointer">
                                 <Image src={TYBLogo} alt="TYB Icon" width={25} />

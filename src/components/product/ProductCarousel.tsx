@@ -7,7 +7,9 @@ import { cn } from "@/lib/utils"
 import Autoplay from "embla-carousel-autoplay"
 import type { StaticImageData } from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import Product1 from "@/images/product1.png"
+import Product1 from "@/images/Enquiry1.png"
+import Product2 from '@/images/Order1.png'
+import Product3 from '@/images/Enquiry1.png'
 
 interface CarouselImageProps {
     src: StaticImageData | string
@@ -17,8 +19,8 @@ interface CarouselImageProps {
 export default function ProductCarousel() {
     const images: CarouselImageProps[] = [
         { src: Product1, alt: "Product 1" },
-        { src: Product1, alt: "Product 2" },
-        { src: Product1, alt: "Product 3" },
+        { src: Product2, alt: "Product 2" },
+        { src: Product3, alt: "Product 3" },
     ]
 
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -52,7 +54,7 @@ export default function ProductCarousel() {
 
     return (
         <div className="relative w-full max-w-6xl mx-auto  p-14 md:py-20 overflow-hidden">
-            <div className="relative h-[400px] md:h-[455px] w-full">
+            <div className="relative h-[400px] md:h-[400px] w-full">
                 {images.map((image, index) => {
                     const position = getPositionClass(index)
 
@@ -60,7 +62,7 @@ export default function ProductCarousel() {
                         <div
                             key={index}
                             className={cn(
-                                "absolute top-1/2 transform -translate-y-1/2 transition-all duration-700 ease-out",
+                                "absolute top-1/2 transform -translate-y-1/2 rounded-2xl transition-all duration-700 ease-out", // Changed from rounded-full to rounded-2xl
                                 position === "center" &&
                                 "left-1/2 -translate-x-1/2 w-full md:w-[60%] h-full z-30 opacity-100 scale-100",
                                 position === "left" && "left-0 -translate-x-[15%] w-[80%] h-[80%] z-20 opacity-40 blur-[2px] scale-95",
@@ -71,14 +73,14 @@ export default function ProductCarousel() {
                         >
                             <div
                                 className={cn(
-                                    "relative w-full h-full  overflow-hidden shadow-lg",
+                                    "relative w-full h-full overflow-hidden shadow-lg rounded-2xl", // Added rounded-2xl here as well
                                     position === "center" && "shadow-2xl",
                                     position === "left" && "transform rotate-y-6",
                                     position === "right" && "transform -rotate-y-6",
                                 )}
                             >
                                 <Image
-                                    src={image.src || "/placeholder.svg"}
+                                    src={image.src}
                                     alt={image.alt}
                                     fill
                                     className="object-cover"
@@ -92,16 +94,16 @@ export default function ProductCarousel() {
             </div>
 
             {/* Navigation buttons */}
-            <div className="flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 px-4 z-40">
+            <div className="flex justify-between absolute top-1/2 -left-4 right-0 -translate-y-1/2 px-4 z-40">
                 <button
                     onClick={() => {
                         setIsAnimating(true)
                         emblaApi?.scrollPrev()
                     }}
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 border border-white/20"
+                    className="text-[#FFAB1A]"
                     aria-label="Previous slide"
                 >
-                    <ChevronLeft className="h-6 w-6" />
+                    <ChevronLeft className="h-14 w-14" />
                 </button>
 
                 <button
@@ -109,14 +111,13 @@ export default function ProductCarousel() {
                         setIsAnimating(true)
                         emblaApi?.scrollNext()
                     }}
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-3 transition-all duration-300 border border-white/20"
+                    className="text-[#FFAB1A]"
                     aria-label="Next slide"
                 >
-                    <ChevronRight className="h-6 w-6" />
+                    <ChevronRight className="h-14 w-14" />
                 </button>
             </div>
 
-            {/* Hidden carousel for handling the state and autoplay */}
             <div className="hidden">
                 <Carousel
                     opts={{
@@ -135,9 +136,6 @@ export default function ProductCarousel() {
                     </CarouselContent>
                 </Carousel>
             </div>
-
-            
         </div>
     )
 }
-

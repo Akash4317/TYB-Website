@@ -1,40 +1,56 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
-import ArrowImage from '@/images/Arrow.svg';
-import TYBFullLogo from '@/images/TYBFullLogo.svg';
 import FooterImage from '@/images/FooterImage.png';
-import WavyImage from "@/images/about-us/wavesOpacity.svg";
+import TYBFooterLogo from '@/images/TYBFullLogo.png';
+import { TybSocialLinks } from '@/constants/constant';
 
 const Footer: React.FC = () => {
-    return (
-        <footer className="text-foreground pt-44 flex flex-col relative overflow-hidden">
-            <Image src={WavyImage} alt="Wavy Image" className="opacity w-full absolute top-0 " />
-            <div className="flex flex-col gap-8 justify-center items-center px-4 md:px-8">
-                <Image src={TYBFullLogo} alt="company logo" className="md:w-[40%] w-[70%]" />
-                <nav>
-                    <ul className="flex flex-wrap justify-center space-x-4 md:space-x-16 mt-2 text-lg md:text-2xl text-center">
-                        <li><a href="/about" className="hover:underline">About Us</a></li>
-                        <li>|</li>
-                        <li><a href="/media" className="hover:underline">Media</a></li>
-                        <li>|</li>
-                        <li><a href="/contact-us" className="hover:underline">Contact Us</a></li>
-                    </ul>
-                </nav>
-                <Image src={FooterImage} alt="Footer Image" width={1080} className="w-full max-w-[600px] md:max-w-[800px]" />
-                <Image src={ArrowImage} alt="mark image" width={250} className="absolute bottom-24  left-0 object-contain w-16 md:w-24 lg:w-44" />
-            </div>
-            <div className='flex flex-col md:flex-row border border-[#A3A2A2] justify-between items-center h-auto md:h-14 px-4 md:px-8 mt-[60px] md:mt-[120px] py-4 md:py-0 text-center'>
-                <p className="text-sm md:text-base">All content &copy; Copyright 2023 by Filosha Infotech Pvt. Ltd. All Rights Reserved.</p>
-                <nav className="mt-2 md:mt-0">
-                    <ul className="flex flex-wrap justify-center space-x-2 md:space-x-4 text-sm md:text-base">
-                        <li><a href="/privacy-policy" className="hover:underline">Privacy Policy</a></li>
-                        <li className="hidden md:inline">|</li>
-                        <li><a href="/terms-and-conditions" className="hover:underline">Terms & Conditions</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </footer>
-    );
+	return (
+		<footer className="text-foreground flex flex-col overflow-hidden mt-8">
+			<div className="flex flex-col gap-8 justify-center items-center px-4 md:px-8">
+				<Image src={FooterImage} alt="Footer Image" width={1080} className="w-full max-w-[600px] md:max-w-[800px]" />
+			</div>
+			<div className='flex flex-col bg-white gap-2 items-center'>
+				<div className='grid grid-cols-1 md:grid-cols-3 md:w-full gap-4 md:gap-8 bg-white items-center px-8 py-4 md:py-0 text-center max-w-[1080px]'>
+					<div className='flex justify-center items-center p-8'>
+						<Image src={TYBFooterLogo} alt="company logo" className='max-w-72' />
+					</div>
+					<nav className='flex flex-col gap-4 items-center'>
+						<h2 className='text-primary text-xl font-light'>Fayde Ka Sauda!</h2>
+						<ul className="flex justify-between text-sm px-8 w-80">
+							<li><Link href="/about-us" className="hover:underline">About Us</Link></li>
+							<li><a href="/media" className="hover:underline">Media</a></li>
+							<li><a href="/contact-us" className="hover:underline">Contact Us</a></li>
+						</ul>
+					</nav>
+					<div className='w-full flex flex-col max-w-64 m-auto'>
+						<label className="text-left w-full text-primary text-">Follow us</label>
+						<div className="flex flex-wrap justify-between  w-full">
+							{
+								TybSocialLinks.map((item, index) => (
+									<Link key={index} href={item.link} target="_blank">
+										<Image src={item.icon} width={32} height={32} alt={item.alt} />
+									</Link>
+								))
+							}
+						</div>
+					</div>
+				</div>
+
+				<div className='flex flex-col md:flex-row justify-between items-center h-auto min-h-12 px-4 md:px-8 py-4 md:py-0 text-center text-gray-400'>
+					<p className="text-sm">All content &copy; Copyright 2023 by Filosha Infotech Pvt. Ltd. All Rights Reserved.</p>
+					<nav className="mt-2 md:mt-0">
+						<ul className="flex flex-wrap justify-center space-x-2 md:space-x-4 text-sm">
+							<li><a href="/privacy-policy" className="hover:underline">Privacy Policy</a></li>
+							<li className="hidden md:inline">|</li>
+							<li><a href="/terms-and-conditions" className="hover:underline">Terms & Conditions</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</footer>
+	);
 };
 export default Footer;

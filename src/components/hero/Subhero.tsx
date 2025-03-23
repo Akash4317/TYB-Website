@@ -5,7 +5,8 @@ import { useRef } from "react"
 import { motion } from "framer-motion"
 import { Button } from "../ui/button"
 import { ChevronRight, MessageCircle } from "lucide-react"
-import we from "@/images/we.jpg"
+import we from "@/images/we.svg"
+import Subheading from "../ui/Subheading"
 
 const Subhero = () => {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -44,7 +45,7 @@ const Subhero = () => {
         <div className="relative overflow-hidden bg-gradient-to-b from-white to-[#fff8f6] py-16 md:py-24">
            
 
-            <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="mx-auto px-4 md:px-8 max-w-8xl">
                 <motion.div
                     ref={sectionRef}
                     className="flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-24"
@@ -54,28 +55,18 @@ const Subhero = () => {
                     variants={containerVariants}
                 >
                     <div className="flex flex-col w-full md:w-1/2 text-center md:text-left">
-                        <motion.div variants={itemVariants} className="mb-2">
-                            <div className="inline-flex items-center gap-2 bg-[#FD5B2F]/10 px-4 py-2 rounded-full">
-                                <span className="h-2 w-2 rounded-full bg-[#FD5B2F] animate-pulse"></span>
-                                <span className="text-[#FD5B2F] font-medium text-sm uppercase tracking-wider">Who We Are</span>
-                            </div>
+                        <motion.div variants={itemVariants} className="mb-4">
+                            <Subheading text="Who Are We" position="left" />
                         </motion.div>
 
                         <motion.h2
                             variants={itemVariants}
-                            className="text-[#B02430] font-poppins text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6"
+                            className="text-[#B02430] font-poppins text-2xl md:text-3xl  font-bold leading-tight "
                         >
                             One Stop{" "}
                             <span className="relative">
                                 Yarn Solution
-                                <svg
-                                    className="absolute -bottom-2 left-0 w-full"
-                                    viewBox="0 0 200 8"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M1 5.5C40 1.5 159 1.5 199 5.5" stroke="#FD5B2F" strokeWidth="2" strokeLinecap="round" />
-                                </svg>
+                               
                             </span>
                         </motion.h2>
 
@@ -115,15 +106,13 @@ const Subhero = () => {
                     {/* Right Image Section */}
                     <motion.div variants={imageVariants} className="w-full md:w-1/2 flex justify-center md:justify-end">
                         <div className="relative">
-                            {/* Decorative elements around image */}
                             <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#FD5B2F]/10 rounded-full blur-xl"></div>
                             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-[#B02430]/10 rounded-full blur-xl"></div>
 
-                            {/* Main image with frame */}
-                            <div className="relative z-10 rounded-2xl overflow-hidden border border-[#323433]/10 shadow-2xl">
+                            <div className="relative z-10 rounded-2xl overflow-hidden  ">
                                 <div className="absolute inset-0 bg-gradient-to-tr from-[#FD5B2F]/20 to-transparent mix-blend-overlay z-10"></div>
                                 <Image
-                                    src={we || "/placeholder.svg"}
+                                    src={we}
                                     alt="The Yarn Bazaar Team"
                                     className="object-cover w-full h-full max-w-[500px]"
                                     width={500}
@@ -159,8 +148,8 @@ const Subhero = () => {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-xs text-[#323433]/60 font-medium">Years of Experience</p>
-                                        <p className="text-xl font-bold text-[#323433]">10+</p>
+                                        <p className="text-xs text-[#323433]/60 font-medium">Years of Exp.</p>
+                                        <p className="text-xl font-bold text-[#323433]">5+</p>
                                     </div>
                                 </div>
                             </motion.div>

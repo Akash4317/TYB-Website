@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Autoplay, EffectCoverflow } from "swiper/modules"
-import { ChevronLeft, ChevronRight, Play, Award, Star, Quote } from "lucide-react"
+import { ChevronLeft, ChevronRight, Play, Award, Star, Quote, ArrowRight, Calendar, Clock } from "lucide-react"
 import { motion } from "framer-motion"
 
 // Import Swiper styles
@@ -52,7 +52,7 @@ const Glory = () => {
                     viewport={{ once: true }}
                     className="mb-16 text-center"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Moment of <span className="text-amber-600">Glory</span></h2>
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Moment of <span className="text-[#CB4B42]">Glory</span></h2>
                 </motion.div>
 
                 {/* Featured content section */}
@@ -198,7 +198,6 @@ const Glory = () => {
                             {images.map((src, index) => (
                                 <SwiperSlide key={index} className="relative" style={{ width: "340px", height: "380px" }}>
                                     <motion.div
-                                        whileHover={{ y: -15,  }}
                                         transition={{ duration: 0.3 }}
                                         className={`relative h-full  overflow-hidden   duration-100}`}
                                     >
@@ -208,28 +207,53 @@ const Glory = () => {
                                             fill
                                             className="object-cover"
                                         />
-                                        <div className="absolute  z-20 flex bottom-0 flex-col justify-end ">
-                                            <div className="p-6 space-y-4">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent z-10">
+                                            <div className="absolute bottom-0 left-0 right-0 z-20 p-6">
                                                 
-                                                <p className="text-white/80 text-sm line-clamp-3">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                                </p>
-                                                <button
-                                                    onClick={() => handleReadMore(index)}
-                                                    className="flex items-center text-white/90 hover:text-white transition-colors group"
+                                                <div className="flex items-center space-x-4 mb-3">
+                                                    <div className="flex items-center text-white/80 text-xs font-medium">
+                                                        <Calendar className="h-3.5 w-3.5 mr-1.5 text-[#FFAB1A]" />
+                                                        <span>March 22, 2025</span>
+                                                    </div>
+                                                    <div className="flex items-center text-white/80 text-xs font-medium">
+                                                        <Clock className="h-3.5 w-3.5 mr-1.5 text-[#FFAB1A]" />
+                                                        <span>Industry News</span>
+                                                    </div>
+                                                </div>
+
+                                                {/* Title with animated underline on hover */}
+                                                <motion.h3
+                                                    className="text-white font-bold text-lg mb-2 group"
+                                                    whileHover={{ scale: 1.01 }}
+                                                    transition={{ duration: 0.2 }}
                                                 >
-                                                    <span className="mr-2 font-medium">Read More</span>
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        className="h-4 w-4 transform group-hover:translate-x-1 transition-transform"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        stroke="currentColor"
-                                                    >
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                                    </svg>
-                                                </button>
+                                                    <span className="relative inline-block">
+                                                        GIBS Business School Appointment
+                                                        <motion.span
+                                                            className="absolute bottom-0 left-0 h-[2px] bg-[#FFAB1A]"
+                                                            initial={{ width: "0%" }}
+                                                            whileHover={{ width: "100%" }}
+                                                            transition={{ duration: 0.3 }}
+                                                        />
+                                                    </span>
+                                                </motion.h3>
+
+                                                {/* Description with better typography */}
+                                                <p className="text-white/90 text-sm leading-relaxed mb-4 line-clamp-3 font-light">
+                                                    GIBS Business School, a leading institution in business education, has appointed Pratik Gadia as a
+                                                    member of its Industry Advisory Council.
+                                                </p>
+
+                                                {/* Improved read more button */}
+                                                <motion.button
+                                                    onClick={() => handleReadMore(index)}
+                                                    className="flex items-center text-[#FFAB1A] hover:text-white transition-colors group"
+                                                    whileHover={{ x: 5 }}
+                                                    transition={{ duration: 0.2 }}
+                                                >
+                                                    <span className="mr-2 font-medium text-sm uppercase tracking-wide">Read More</span>
+                                                    <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                                                </motion.button>
                                             </div>
                                         </div>
                                     </motion.div>
@@ -238,13 +262,13 @@ const Glory = () => {
                         </Swiper>
 
                         {/* Custom Navigation Buttons */}
-                        <button className="custom-swiper-button-prev absolute left-4 top-1/2 z-30 flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-xl transform -translate-y-1/2 hover:scale-110 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button className="custom-swiper-button-prev absolute -left-8 top-1/2 z-30 flex items-center justify-center w-12 h-12 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#FFAB1A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
-                        <button className="custom-swiper-button-next absolute right-4 top-1/2 z-30 flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-xl transform -translate-y-1/2 hover:scale-110 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button className="custom-swiper-button-next absolute -right-8 top-1/2 z-30 flex items-center justify-center w-12 h-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#FFAB1A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </button>

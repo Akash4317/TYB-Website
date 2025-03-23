@@ -53,7 +53,6 @@ const ProductNew = () => {
                                 className="object-contain  md:max-w-[625PX] relative z-10"
                             />
 
-                            {/* Play Button */}
                             <div className="absolute inset-0 z-40 flex items-center justify-center">
                                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-110">
                                     <Image

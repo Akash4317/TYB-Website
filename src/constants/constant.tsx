@@ -1,5 +1,5 @@
 import { ScrollImagesInterface } from "@/components/images-scroll/Scroll";
-import { LinkInterface } from "./interface";
+import { LinkInterface, PillarData, SocialLinkInterface } from "./interface";
 import cnbcTv18 from '@/images/media-coverage/cnbc-tv18.png';
 import cnbc from '@/images/media-coverage/cnbc.png';
 import dailyHunt from '@/images/media-coverage/daily-hunt.png';
@@ -15,7 +15,17 @@ import textileValueChain from '@/images/media-coverage/textile-value-chain.png';
 import theHinduLogo from '@/images/media-coverage/the-hindu-logo.png';
 import yourStory from '@/images/media-coverage/yourstory.png';
 import zeeBusiness from '@/images/media-coverage/zee-business.png';
+import TwitterIcon from '@/icons/social/Twitter.png';
+import YoutubeIcon from '@/icons/social/Youtube.png';
+import SpotifyIcon from '@/icons/social/Spotify.png';
+import LinkedinIcon from '@/icons/social/LinkedIn.png';
+import FacebookIcon from '@/icons/social/Facebook.png';
+import InstagramIcon from '@/icons/social/Instagram.png';
 
+import supplier from '@/images/supplier.jpg'
+import Assurance from '@/images/assurance.jpg'
+import Traceability from '@/images/tracebility.jpg'
+import Sustainability from '@/images/sustainability.jpg'
 
 export const links: LinkInterface[] = [
   { url: '/', label: 'Home' },
@@ -341,7 +351,7 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img1.jpg?updatedAt=1719642489369',
     text:
-      "Switching to Yarn Broker has been a game-changer for our yarn business! Their platform is intuitive and makes both buying and selling yarn a breeze. Highly recommended!",
+      "Switching to Yarn Broker has been a game-changer for our yarn business! Highly recommended!",
   },
   {
     name: 'md khalid',
@@ -349,7 +359,7 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img2.jpg?updatedAt=1719642489427',
     text:
-      "I was truly impressed by the personalized support from Yarn Broker. They understand the nuances of the yarn market and always ensure I get the best deals for my business!",
+      "I was truly impressed by the personalized support from Yarn Broker.Lorem ipsum dolor, sit amet consectetur",
   },
   {
     name: 'Kevin',
@@ -357,7 +367,7 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img4.jpg?updatedAt=1719642497047',
     text:
-      "Highly recommend Yarn Broker for anyone in the yarn industry. Their platform is robust, and the team is incredibly supportive when it comes to sourcing high-quality yarns.",
+      "Highly recommend Yarn Broker for anyone in the yarn industry.Lorem ipsum dolor, sit amet consectetur",
   },
   {
     name: 'Ujval Joshi',
@@ -365,7 +375,7 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img5.jpg?updatedAt=1719642496997',
     text:
-      "Using Yarn Broker has simplified our operations immensely and expanded our network. It's the perfect solution for anyone looking to buy or sell yarn efficiently.",
+      "Using Yarn Broker has simplified our operations immensely and expanded our network.",
   },
   {
     name: 'Sebastiaan de With',
@@ -373,7 +383,7 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img6.jpg?updatedAt=1719642497043',
     text:
-      "After trying various yarn marketplaces, Yarn Broker stood out for its simplicity and cost-effectiveness. I couldn't be happier with the service!",
+      "After trying various yarn marketplaces, Yarn Broker stood out for its simplicity and cost-effectiveness",
   },
   {
     name: 'Michal Malewicz',
@@ -381,7 +391,7 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img7.jpg?updatedAt=1719642497006',
     text:
-      "I love how customizable Yarn Broker is! Whether I'm tailoring my buying experience or managing my selling options, everything is just a click away. Truly awesome!",
+      "I love how customizable Yarn Broker is! Whether I'm tailoring my buying experience or managing my selling options",
   },
   {
     name: 'Neil Hainsworth',
@@ -389,7 +399,7 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img8.jpg?updatedAt=1719642497316',
     text:
-      "Why settle for less when Yarn Broker gives you the freedom to choose? Their flexible payment options and seamless transactions are exactly what a modern yarn business needs.",
+      "Why settle for less when Yarn Broker gives you the freedom to choose.Lorem ipsum dolor, sit amet consectetur",
   },
   {
     name: 'Vladimir Kharlampidi',
@@ -397,7 +407,7 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img9.jpg?updatedAt=1719642497408',
     text:
-      "Switching to Yarn Broker has saved us significant costs on transactions. Their flexible solutions and market insights are a game-changer for any yarn trader.",
+      "Switching to Yarn Broker has saved us significant costs on transactions. Lorem ipsum dolor, sit amet consectetur",
   },
   {
     name: 'Alex Pesenka',
@@ -405,6 +415,67 @@ export const PeopleTestimonials = [
     image:
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img10.jpg?updatedAt=1719642489417',
     text:
-      "With Yarn Broker, we've scaled our yarn business seamlessly. Their platform grows with you, offering everything needed to succeed in the dynamic world of yarn trading.",
+      "With Yarn Broker, we've scaled our yarn business seamlessly. Lorem ipsum dolor, sit amet consectetur"
+      ,
+  },
+];
+
+export const TybSocialLinks: SocialLinkInterface[] = [
+  {
+    icon: TwitterIcon,
+    link: 'https://twitter.com/the_yarn_bazaar?t=E1xuC3VG4_v5W4kmm-Cdhg&s=09',
+    alt: 'Twitter',
+  },
+  {
+    icon: YoutubeIcon,
+    link: 'https://www.youtube.com/c/THEYARNBAZAAR',
+    alt: 'Youtube',
+  },
+  {
+    icon: SpotifyIcon,
+    link: 'https://open.spotify.com/show/7nrT5bUoBAtJwuLh9S4F40',
+    alt: 'Spotify',
+  },
+  {
+    icon: LinkedinIcon,
+    link: 'https://www.linkedin.com/company/theyarnbazaar/?viewAsMember=true',
+    alt: 'LinkedIn',
+  },
+  {
+    icon: FacebookIcon,
+    link: 'https://www.facebook.com/theyarnbazaar/',
+    alt: 'Facebook',
+  },
+  {
+    icon: InstagramIcon,
+    link: 'https://instagram.com/theyarnbazaar?igshid=YmMyMTA2M2Y=',
+    alt: 'Instagram',
+  },
+];
+
+export const pillarData: PillarData[] = [
+  {
+    src: supplier,
+    alt: 'Best Suppliers',
+    title: 'Best Suppliers',
+    description: 'Lorem Ipsum Dolor Greta',
+  },
+  {
+    src: Assurance,
+    alt: 'Quality Assurance',
+    title: 'Quality Assurance',
+    description: 'Lorem Ipsum Dolor Greta',
+  },
+  {
+    src: Traceability,
+    alt: 'Traceability',
+    title: 'Traceability',
+    description: 'Lorem Ipsum Dolor Greta',
+  },
+  {
+    src: Sustainability,
+    alt: 'Sustainability',
+    title: 'Sustainability',
+    description: 'Lorem Ipsum Dolor Greta',
   },
 ];
