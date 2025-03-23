@@ -395,7 +395,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 250px;
+  width: 150px;
   height: 100%;
   pointer-events: none;
   background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
@@ -407,7 +407,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 250px;
+  width: 150px;
   height: 100%;
   pointer-events: none;
   background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
@@ -415,7 +415,7 @@ body {
 }
 
 .animate-marquee-infinite {
-  animation: marquee 20s linear infinite;
+  animation: marquee 30s linear infinite;
   width: max-content;
 }
 

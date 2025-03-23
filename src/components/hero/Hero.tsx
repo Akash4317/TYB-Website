@@ -5,10 +5,16 @@ import Image from 'next/image';
 import Innovation from '@/images/innovation.png';
 import Trust from '@/images/trust.png';
 import Efficiency from '@/images/efficiency.png';
-import Sustainability from '@/images/sustainability.png';
+import Sustainability from '@/images/sustainability.svg';
 
 const texts = ["Innovation.", "Trust.", "Efficiency.", "Sustainability."];
 const images = [Innovation, Trust, Efficiency, Sustainability];
+const colors = [
+  "#FFAB1A",
+  "#F45E50",
+  "#A23934",
+  "#F8D63B",
+];
 
 const Hero = () => {
   const backgroundImageUrl = 'https://tyb-website-next.s3.ap-south-1.amazonaws.com/bg-new.jpg';
@@ -43,6 +49,7 @@ const Hero = () => {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -50, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
+                style={{ color: colors[index] }}
                 className="absolute inset-0 text-5xl md:text-8xl  bg-gradient-to-r from-[#FFAB1A] to-[#ffd58a] bg-clip-text text-transparent font-extrabold"
               >
                 {texts[index]}
@@ -63,9 +70,9 @@ const Hero = () => {
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: -50, opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="absolute top-0 md:-top-10"
+              className="absolute top-0 "
             >
-              <Image src={images[index]} alt="main" width={300} height={220} className="object-cover" />
+              <Image src={images[index]} alt="main" width={250} height={250} className="object-cover" />
             </motion.div>
           </AnimatePresence>
           <div className="flex flex-col items-center mt-[250px]">
@@ -83,7 +90,7 @@ const Hero = () => {
               initial={{ y: 0 }}
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 0.6, ease: "easeInOut", delay: 0.1 }}
-              className="mt-0 md:-mb-0"
+              className="mt-0 md:-mt-4"
             >
               <Image src={base} alt="base" width={220} height={220} />
             </motion.div>
@@ -92,7 +99,7 @@ const Hero = () => {
               initial={{ y: 0 }}
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
-              className="mt-0 md:-mt-6"
+              className="mt-0 md:-mt-10"
             >
               <Image src={base} alt="base" width={220} height={220} />
             </motion.div>
