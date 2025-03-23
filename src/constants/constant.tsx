@@ -1,5 +1,5 @@
 import { ScrollImagesInterface } from "@/components/images-scroll/Scroll";
-import { LinkInterface } from "./interface";
+import { LinkInterface, PillarData, SocialLinkInterface } from "./interface";
 import cnbcTv18 from '@/images/media-coverage/cnbc-tv18.png';
 import cnbc from '@/images/media-coverage/cnbc.png';
 import dailyHunt from '@/images/media-coverage/daily-hunt.png';
@@ -15,7 +15,17 @@ import textileValueChain from '@/images/media-coverage/textile-value-chain.png';
 import theHinduLogo from '@/images/media-coverage/the-hindu-logo.png';
 import yourStory from '@/images/media-coverage/yourstory.png';
 import zeeBusiness from '@/images/media-coverage/zee-business.png';
+import TwitterIcon from '@/icons/social/Twitter.png';
+import YoutubeIcon from '@/icons/social/Youtube.png';
+import SpotifyIcon from '@/icons/social/Spotify.png';
+import LinkedinIcon from '@/icons/social/LinkedIn.png';
+import FacebookIcon from '@/icons/social/Facebook.png';
+import InstagramIcon from '@/icons/social/Instagram.png';
 
+import supplier from '@/images/supplier.jpg'
+import Assurance from '@/images/assurance.jpg'
+import Traceability from '@/images/tracebility.jpg'
+import Sustainability from '@/images/sustainability.jpg'
 
 export const links: LinkInterface[] = [
   { url: '/', label: 'Home' },
@@ -406,5 +416,65 @@ export const PeopleTestimonials = [
       'https://ik.imagekit.io/lnu6zvhsq/assets/customer/img10.jpg?updatedAt=1719642489417',
     text:
       "With Yarn Broker, we've scaled our yarn business seamlessly. Their platform grows with you, offering everything needed to succeed in the dynamic world of yarn trading.",
+  },
+];
+
+export const TybSocialLinks: SocialLinkInterface[] = [
+  {
+    icon: TwitterIcon,
+    link: 'https://twitter.com/the_yarn_bazaar?t=E1xuC3VG4_v5W4kmm-Cdhg&s=09',
+    alt: 'Twitter',
+  },
+  {
+    icon: YoutubeIcon,
+    link: 'https://www.youtube.com/c/THEYARNBAZAAR',
+    alt: 'Youtube',
+  },
+  {
+    icon: SpotifyIcon,
+    link: 'https://open.spotify.com/show/7nrT5bUoBAtJwuLh9S4F40',
+    alt: 'Spotify',
+  },
+  {
+    icon: LinkedinIcon,
+    link: 'https://www.linkedin.com/company/theyarnbazaar/?viewAsMember=true',
+    alt: 'LinkedIn',
+  },
+  {
+    icon: FacebookIcon,
+    link: 'https://www.facebook.com/theyarnbazaar/',
+    alt: 'Facebook',
+  },
+  {
+    icon: InstagramIcon,
+    link: 'https://instagram.com/theyarnbazaar?igshid=YmMyMTA2M2Y=',
+    alt: 'Instagram',
+  },
+];
+
+export const pillarData: PillarData[] = [
+  {
+    src: supplier,
+    alt: 'Best Suppliers',
+    title: 'Best Suppliers',
+    description: 'Lorem Ipsum Dolor Greta',
+  },
+  {
+    src: Assurance,
+    alt: 'Quality Assurance',
+    title: 'Quality Assurance',
+    description: 'Lorem Ipsum Dolor Greta',
+  },
+  {
+    src: Traceability,
+    alt: 'Traceability',
+    title: 'Traceability',
+    description: 'Lorem Ipsum Dolor Greta',
+  },
+  {
+    src: Sustainability,
+    alt: 'Sustainability',
+    title: 'Sustainability',
+    description: 'Lorem Ipsum Dolor Greta',
   },
 ];

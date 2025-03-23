@@ -1,19 +1,19 @@
 "use client"
 import Image from 'next/image';
-import React, { useRef } from 'react';
-import TYBIconImage from "@/images/TybIcon.png";
-import { links } from '@/constants/constant';
 import Link from "next/link";
+import React, { useRef } from 'react';
 import { AlignLeft, X } from "lucide-react";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { usePathname } from 'next/navigation';
+
 import icon from "@/images/Icon.png"
+import { links } from '@/constants/constant';
+import TYBIconImage from "@/images/TybIcon.png";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 const Navbar: React.FC = () => {
 	const router = usePathname();
 	const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
 	const [isOpen, setIsOpen] = React.useState(false);
-
 
 	return (
 		<>
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
 							priority
 						/>
 					</div>
-					<ul className="flex gap-10 items-center relative">
+					<ul className="flex items-center justify-evenly w-1/2">
 						{links.map((link, index) => (
 							<li
 								key={link.url}
@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
 							>
 								<Link
 									href={link.url}
-									className={`font-poppins text-[18px] leading-[28px] transition-colors duration-300 ${router === link.url
+									className={`font-poppins text-[18px] ${router === link.url
 										? 'text-[#A33B35] font-bold'
 										: 'text-[#323433] font-medium'
 										}`}
@@ -58,9 +58,9 @@ const Navbar: React.FC = () => {
 						<div id="nav-content-wrapper" className="mx-auto px-4 w-full">
 							<div
 								id="nav-content"
-								className="gap-x-4 gap-y-0 flex-row flex justify-between items-center w-full min-h-[70px]"
+								className="gap-y-0 flex-row-reverse flex justify-between items-center w-full min-h-[70px]"
 							>
-								<div className="flex flex-row justify-between min-w-[20%]">
+								<div className="flex flex-row justify-between">
 									<div className="nav-left z-10 flex-row flex flex-shrink-0 justify-between items-center relative min-w-[20%]">
 										<Sheet open={isOpen} onOpenChange={setIsOpen}>
 											<SheetTrigger asChild>
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
 											</SheetTrigger>
 											<SheetContent side="top" className="">
 												<SheetHeader>
-													<SheetTitle className="flex items-center justify-center pb-2 border-b border-gray-500">
+													<SheetTitle className="flex items-center justify-center pb-2">
 														<Link href="/" className="logo flex-shrink-0 ml-4">
 															<Image
 																src={icon}
@@ -130,11 +130,9 @@ const Navbar: React.FC = () => {
 								<div className="flex items-center justify-center">
 									<Link href="/" className="logo flex-shrink-0 ml-4">
 										<Image
-											src={icon}
+											src={TYBIconImage}
 											alt="Logo"
-											width={100}
 											height={50}
-											className="max-h-[50px] max-w-[95px] md:max-w-[150px] flex flex-end flex-shrink-0 w-full flex-row h-auto items-start justify-start"
 										/>
 									</Link>
 								</div>
