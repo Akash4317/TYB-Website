@@ -479,15 +479,3 @@ export const pillarData: PillarData[] = [
     description: 'Lorem Ipsum Dolor Greta',
   },
 ];
-
-export const briefHistoryParagraphs = [
-  `Have you ever felt frustrated by the opaque and outdated process of buying and selling yarn in the textile industry? Are you tired of spending countless hours and resources on phone calls and one-to-one meetings just to arrive at basics like fair price, delivery terms and payment terms?`,
-  `As a textile industry insider I used to feel this way every day, so much so that I decided I would never join this industry.`,
-  `The old-fashioned methods of procurement, marketing, distribution, and sales in the industry often result in a lack of transparency and fairness. In short, the supply chain is broken resulting in huge losses for both sellers and buyers. But no more.`,
-  `It’s time to change. I, along with a team of like-minded individuals, founded The Yarn Bazaar in 2019. Our vision and mission are clear. We want to organise the textile industry and empower small yarn buyers and suppliers!`,
-];
-
-export const IndustryPotentialParagraphs = [
-  `With The Yarn Bazaar, you can discover real-time yarn prices, information, and market trends in an instant. Our proprietary processes and flexible unsecured financing options allow yarn sellers to increase their reach and sales with higher margins, and buyers to reduce their raw material & procurement costs saving time and effort.`,
-  `Say goodbye to the outdated and opaque methods of buying and selling yarn. Join us at The Yarn Bazaar and take control of your business with ease, transparency, and fairness!`
-]
