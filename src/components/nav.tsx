@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
 							</li>
 						))}
 					</ul>
-					<div className='absolute right-8 top-0 z-10 hidden md:block'>
+					<div className='absolute right-0 top-0 z-10 hidden md:block'>
 						<Image
 							src={STIImage}
 							alt="Shark Tank Logo"
