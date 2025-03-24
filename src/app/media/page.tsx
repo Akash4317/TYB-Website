@@ -93,7 +93,7 @@ export default MediaPage;
 
 const TYBStory = () => {
   return (
-    <div className="relative overflow-hidden py-16 md:py-24">
+    <div className="relative overflow-hidden py-8 md:py-16">
       <div className="max-w-[95%] items-end flex justify-between mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-4 md:gap-12">
           <div>
