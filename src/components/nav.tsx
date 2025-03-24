@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import icon from "@/images/Icon.png"
 import { links } from '@/constants/constant';
 import TYBIconImage from "@/images/TybIcon.png";
+import STIImage from "@/images/STI.svg";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 const Navbar: React.FC = () => {
@@ -17,8 +18,8 @@ const Navbar: React.FC = () => {
 
 	return (
 		<>
-			<nav className="border-b hidden md:block px-10 py-4 z-[999] bg-white">
-				<div className="mx-auto flex justify-between items-center">
+			<nav className="relative border-b hidden md:block px-10 py-4 z-[999] bg-white">
+				<div className="relative mx-auto flex justify-between items-center">
 					<div className="flex items-center space-x-2">
 						<Image
 							src={TYBIconImage}
@@ -27,7 +28,7 @@ const Navbar: React.FC = () => {
 							priority
 						/>
 					</div>
-					<ul className="flex items-center justify-evenly w-1/2">
+					<ul className="flex items-center gap-16 w-1/2">
 						{links.map((link, index) => (
 							<li
 								key={link.url}
@@ -38,16 +39,22 @@ const Navbar: React.FC = () => {
 							>
 								<Link
 									href={link.url}
-									className={`font-poppins text-[18px] ${router === link.url
-										? 'text-[#A33B35] font-bold'
-										: 'text-[#323433] font-medium'
-										}`}
+									className={`font-poppins text-[18px] text-[#323433] font-medium ${router === link.url ? 'underline underline-offset-4 decoration-[#FD5B2F] decoration-2' : ''}`}
 								>
 									{link.label}
 								</Link>
 							</li>
 						))}
 					</ul>
+					<div className='absolute right-8 top-0 z-10 hidden md:block'>
+						<Image
+							src={STIImage}
+							alt="Shark Tank Logo"
+							height={0}
+							width={0}
+							className='w-full h-full object-cover'
+						/>
+					</div>
 				</div>
 			</nav>
 			<header className='md:hidden sm:block py-5 z-[999]'>
