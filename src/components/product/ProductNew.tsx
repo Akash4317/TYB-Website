@@ -10,15 +10,15 @@ import ProductCarousel from './ProductCarousel'
 const ProductNew = () => {
     return (
         <div className='w-full bg-[#FFCFC242] py-4'>
-            <div className='max-w-[95%] mx-auto h-full p-4  flex flex-col md:flex-row justify-between items-center '>
+            <div className='max-w-[95%] mx-auto h-full p-4 gap-10 md:gap-0  flex flex-col md:flex-row justify-between items-center '>
                 <motion.div
                     initial={{ opacity: 0, x: -100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-4xl font-semibold mb-8">Our Products</h2>
-                    <p className="text-[#6F727B] max-w-[500px] mb-4">
+                    <h2 className="text-4xl font-semibold mb-8 text-center md:text-left">Our Products</h2>
+                    <p className="text-[#6F727B] max-w-[500px] mb-4 text-center md:text-left">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                     <div className="w-full flex justify-center md:justify-start">

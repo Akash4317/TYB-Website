@@ -55,7 +55,7 @@ const Subhero = () => {
                     variants={containerVariants}
                 >
                     <div className="flex flex-col w-full md:w-1/2 text-center md:text-left">
-                        <motion.div variants={itemVariants} className="mb-4">
+                        <motion.div variants={itemVariants} className="mb-4 hidden md:block ">
                             <Subheading text="Who Are We" position="left" />
                         </motion.div>
 
